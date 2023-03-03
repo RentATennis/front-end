@@ -1,2 +1,2 @@
-# front-end
-RentATennis frontend application
+# rent-a-tennis
+RentATennis application
