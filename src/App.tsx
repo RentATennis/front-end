@@ -1,14 +1,17 @@
 import { ToastContainer } from "react-toastify";
-import Dashboard from "./pages/Dashboard";
+import UserProvider from "./contexts/UserContext";
+import ApplicationRoutes from "./routes";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <>
-      <Dashboard />
+      <UserProvider>
+        <ApplicationRoutes />
+      </UserProvider>
       <ToastContainer
-        position="bottom-right"
-        autoClose={5000}
+        position="top-right"
+        autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
