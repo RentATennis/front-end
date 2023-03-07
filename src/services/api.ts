@@ -1,6 +1,6 @@
-import axios from "axios"
+import axios from "axios";
 
 export const api = axios.create({
-    baseURL: '',
-    timeout: 5000,
-})
+  baseURL: "https://rent-a-tennis-json-server.onrender.com",
+  timeout: 10000,
+});
