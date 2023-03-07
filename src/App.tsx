@@ -1,17 +1,16 @@
-import { ToastContainer } from "react-toastify"
-import UserProvider from "./contexts/UserContext"
-import ApplicationRoutes from "./routes"
-import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer } from "react-toastify";
+import UserProvider from "./contexts/UserContext";
+import ApplicationRoutes from "./routes";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-
   return (
     <>
       <UserProvider>
         <ApplicationRoutes />
       </UserProvider>
       <ToastContainer
-        position='top-right'
+        position="top-right"
         autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -20,10 +19,10 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme='light'
+        theme="light"
       />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
