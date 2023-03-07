@@ -1,11 +1,11 @@
+import { useContext } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import Input from '../../components/Input'
 import Logo from '../../components/Logo'
+import { UserContext } from '../../contexts/UserContext'
 import { StyledContainer } from '../../styles/container'
 import { iFormLoginValues } from './@types'
-
-
 
 const LoginPage = () => {
 
@@ -14,9 +14,12 @@ const LoginPage = () => {
     handleSubmit, 
     formState: { errors }, 
     reset } = useForm<iFormLoginValues>()
-  
+
+  const { userLogin } = useContext(UserContext)
+    
   const submitForm: SubmitHandler<iFormLoginValues> = (formData) => {
     console.log(formData)
+    userLogin(formData)
     reset()
   }
 
