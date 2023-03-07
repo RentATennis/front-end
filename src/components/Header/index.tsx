@@ -1,9 +1,10 @@
 import React from "react";
 import Logo from "../../assets/logotipo.png";
+import { StyledHeader } from "./StyledHeader";
 
 const Header = () => {
   return (
-    <header>
+    <StyledHeader>
       <figure>
         <img src={Logo} alt="Logo RentaTennis" />
       </figure>
@@ -12,7 +13,7 @@ const Header = () => {
         <button>Entrar</button>
         <button>Cadastrar</button>
       </div>
-    </header>
+    </StyledHeader>
   );
 };
 
