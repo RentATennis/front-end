@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
-import { ShopContext } from "../../contexts/ShopContext/ShopContext";
-import CardProduct from "./CardProduct";
-import { StyledUl } from "./CardProduct/SyledUl";
+import React, { useContext } from "react"
+import { ShopContext } from "../../contexts/ShopContext/ShopContext"
+import CardProduct from "./CardProduct"
+import { StyledUl } from "./CardProduct/SyledUl"
 
 const DashListProducts = () => {
-  const { productList } = useContext(ShopContext);
+  const { productList } = useContext(ShopContext)
 
-  console.log(productList);
+  console.log(productList)
 
   return (
     <StyledUl>
@@ -28,8 +28,8 @@ const DashListProducts = () => {
         />
       ))}
     </StyledUl>
-  );
-};
+  )
+}
 
 /*   brand: string;
   category: string;
@@ -43,4 +43,4 @@ const DashListProducts = () => {
   name: string;
   price: number;
   size: number[]; */
-export default DashListProducts;
+export default DashListProducts

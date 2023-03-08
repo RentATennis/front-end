@@ -4,4 +4,4 @@ export interface iFormRegisterValues {
     celular: string;
     email: string;
     password: string;
-};
+}

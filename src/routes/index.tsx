@@ -13,7 +13,7 @@ const ApplicationRoutes = () => {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/dashboard" element={<ShopProvider><Dashboard /></ShopProvider>}/>
     </Routes>
-  );
-};
+  )
+}
 
-export default ApplicationRoutes;
+export default ApplicationRoutes
