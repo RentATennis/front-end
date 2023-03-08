@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ShopContext } from "../../contexts/ShopContext/ShopContext";
 import CardProduct from "./CardProduct";
-import { StyledUl } from "./CardProduct/SyledUl";
+import { StyledUl } from "./SyledUl";
 
 const DashListProducts = () => {
   const { productList } = useContext(ShopContext);

@@ -13,7 +13,6 @@ const InputSelect = () => {
   const getBrandsProducts = async () => {
     const allBrands = await getAllProducts();
 
-    console.log(allBrands);
   };
   getBrandsProducts();
 

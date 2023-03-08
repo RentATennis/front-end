@@ -10,8 +10,8 @@ const Header = () => {
       </figure>
 
       <div className="button__header">
-        <button>Entrar</button>
-        <button>Cadastrar</button>
+        <button className="login">Entrar</button>
+        <button className="register">Cadastrar</button>
       </div>
     </StyledHeader>
   );
