@@ -3,7 +3,7 @@ import { FieldError, UseFormRegisterReturn } from 'react-hook-form';
 export interface iInput {
   label: string;
   type: "text" | "email" | "password";
-  placeholder: string;
+  placeholder?: string;
   register: UseFormRegisterReturn<string>;
   errors?: FieldError;
 }

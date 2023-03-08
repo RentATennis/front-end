@@ -28,8 +28,8 @@ const LoginForm = () => {
   return (
     <StyledLoginForm onSubmit={handleSubmit(submitForm)}>
       <h1>Login</h1>
-      <Input label='Email' type='email' placeholder='Email' register={register('email')} errors={errors.email} />
-      <Input label='Senha' type='password' placeholder='Senha' register={register('password')} errors={errors.password} />
+      <Input label='Email' type='email' register={register('email')} errors={errors.email} />
+      <Input label='Senha' type='password' register={register('password')} errors={errors.password} />
       <button type='submit'>Entrar</button>
       <p>Ainda não possui uma conta? Cadastre-se!</p>
       <Link to={'/register'}>Cadastrar</Link>
