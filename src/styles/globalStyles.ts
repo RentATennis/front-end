@@ -20,6 +20,9 @@ export const GlobalStyles = createGlobalStyle`
         --color-green-400: #009100;
         --color-green-background: #D2FDC7;
 
+        /* Feedback Palette */
+        --color-red: #E60000;
+
         /* Extra Colors */
         --color-white: #FAFAFA;
 
@@ -35,7 +38,7 @@ export const GlobalStyles = createGlobalStyle`
         --font-size-3: 1.5rem;   /* 24px */
         --font-size-4: 1.25rem;  /* 20px */
         --font-size-5: 1rem;     /* 16px */
-        --font-size-5: 0.75rem;  /* 12px */
+        --font-size-6: 0.75rem;  /* 12px */
     }
 
     body {

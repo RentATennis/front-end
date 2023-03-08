@@ -1,10 +1,10 @@
-import { useRadioGroup } from "@mui/material/RadioGroup";
-import * as React from "react";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
+import { useRadioGroup } from "@mui/material/RadioGroup"
+import * as React from "react"
+import Radio from "@mui/material/Radio"
+import RadioGroup from "@mui/material/RadioGroup"
+import FormControlLabel from "@mui/material/FormControlLabel"
+import FormControl from "@mui/material/FormControl"
+import FormLabel from "@mui/material/FormLabel"
 
 interface iInputProps {
   label: string;
@@ -25,7 +25,7 @@ const InputRadioCategory = () => {
         <FormControlLabel value="Social" control={<Radio />} label="Social" />
       </RadioGroup>
     </FormControl>
-  );
-};
+  )
+}
 
-export default InputRadioCategory;
+export default InputRadioCategory

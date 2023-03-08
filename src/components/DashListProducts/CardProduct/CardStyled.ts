@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const StyledCard = styled.li`
   width: 300px;
@@ -7,4 +7,4 @@ export const StyledCard = styled.li`
     width: 300px;
     height: 300px;
   }
-`;
+`
