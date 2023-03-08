@@ -21,7 +21,7 @@ const UserProvider = ({ children }: iUserProvider) => {
       toast.success('Login realizado com sucesso!')
       navigate('/dashboard')
     } catch (error) {
-      console.error(error);
+      console.error(error)
     }
   }
 
