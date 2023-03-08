@@ -13,7 +13,7 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
       const response = await api.get("/products");
       setProductList(response.data);
     } catch (error) {
-      toast.error('Tempo Expirado, tente novamente')
+    console.log(error)
     }
   };
   useEffect(() => {

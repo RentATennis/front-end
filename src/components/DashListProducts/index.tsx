@@ -6,7 +6,6 @@ import { StyledUl } from "./SyledUl";
 const DashListProducts = () => {
   const { productList } = useContext(ShopContext);
 
-  console.log(productList);
 
   return (
     <StyledUl>

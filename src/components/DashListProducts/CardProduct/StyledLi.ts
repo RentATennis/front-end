@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledCard = styled.li`
   width: 300px;
-  height: 459px;
+  height: 480px;
   display: flex;
   flex-direction: column;
   gap: 43px;
@@ -15,7 +15,6 @@ export const StyledCard = styled.li`
 
 .div__figure--true{
   background-image:url('src/assets/DashCardBaseLogged.png');
-  background-size:cover;
   background-size: contain;
   background-repeat: no-repeat;
   position: relative;
@@ -23,8 +22,8 @@ export const StyledCard = styled.li`
 
 button{
   position: absolute;
-  bottom: 29px;
-  right: 27px;
+  bottom: 15px;
+  right: 78px;
   width: 50px;
   height: 50px;
   background-color: var(--color-green-400);
@@ -35,8 +34,8 @@ button{
   
   
   img {
-    width: 300px;
-    height: 300px;
+    width: 237px;
+    height: 237px;
   }
 
   div{
