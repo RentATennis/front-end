@@ -13,7 +13,7 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
       const response = await api.get("/products");
       setProductList(response.data);
     } catch (error) {
-      console.log(error);
+    console.log(error)
     }
   }
   useEffect(() => {
