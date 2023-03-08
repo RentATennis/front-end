@@ -4,7 +4,7 @@ import CardProduct from "./CardProduct";
 import { StyledUl } from "./SyledUl";
 
 const DashListProducts = () => {
-  const { productList } = useContext(ShopContext);
+  const { productList } = useContext(ShopContext)
 
 
   return (
@@ -27,8 +27,8 @@ const DashListProducts = () => {
         />
       ))}
     </StyledUl>
-  );
-};
+  )
+}
 
 /*   brand: string;
   category: string;
@@ -42,4 +42,4 @@ const DashListProducts = () => {
   name: string;
   price: number;
   size: number[]; */
-export default DashListProducts;
+export default DashListProducts

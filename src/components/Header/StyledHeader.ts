@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const StyledHeader = styled.header`
   position: fixed;
@@ -49,4 +49,4 @@ export const StyledHeader = styled.header`
   @media (max-width: 500px) {
     flex-direction: column;
   }
-`;
+`

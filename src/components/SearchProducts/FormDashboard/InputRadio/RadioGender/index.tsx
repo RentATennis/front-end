@@ -1,9 +1,9 @@
-import * as React from "react";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
+import * as React from "react"
+import Radio from "@mui/material/Radio"
+import RadioGroup from "@mui/material/RadioGroup"
+import FormControlLabel from "@mui/material/FormControlLabel"
+import FormControl from "@mui/material/FormControl"
+import FormLabel from "@mui/material/FormLabel"
 
 const InputGender = () => {
   return (
@@ -19,7 +19,7 @@ const InputGender = () => {
         <FormControlLabel value="Male" control={<Radio />} label="Masculino" />
       </RadioGroup>
     </FormControl>
-  );
-};
+  )
+}
 
-export default InputGender;
+export default InputGender

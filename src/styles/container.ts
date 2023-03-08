@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 interface IStyledContainerProps {
     containerWidth?: number;
@@ -9,4 +9,4 @@ export const StyledContainer = styled.div<IStyledContainerProps>`
     max-width: ${({ containerWidth }) => containerWidth ? containerWidth : 1200}px;
     margin: 0 auto;
     padding: 10px;
-`;
+`

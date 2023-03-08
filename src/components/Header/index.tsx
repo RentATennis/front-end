@@ -1,6 +1,5 @@
-import React from "react";
-import Logo from "../../assets/logotipo.png";
-import { StyledHeader } from "./StyledHeader";
+import Logo from "../../assets/logotipo.png"
+import { StyledHeader } from "./StyledHeader"
 
 const Header = () => {
   return (
@@ -14,7 +13,7 @@ const Header = () => {
         <button className="register">Cadastrar</button>
       </div>
     </StyledHeader>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

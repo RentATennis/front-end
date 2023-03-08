@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import { iFormLoginValues } from "../../pages/LoginPage/@types";
+import { ReactNode } from "react"
+import { iFormLoginValues } from "../../components/Form/LoginForm/@types"
 
 export interface iUserProvider {
   children: ReactNode;
