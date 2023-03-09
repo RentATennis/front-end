@@ -9,6 +9,7 @@ import { StyledFooter } from "./StyledFooter"
 import { StyledProfileContainer } from "./StyledProfileContainer"
 import { ShopContext } from "../../contexts/ShopContext/ShopContext"
 import RentProductCard from "../../components/RentProductCard/RentProductCard"
+import { StyledProfileEmpty } from "./StyledProfileEmpty"
 
 const ProfilePage = () => {
   const { productList } = useContext(ShopContext)
@@ -28,18 +29,20 @@ const ProfilePage = () => {
         </nav>
       </StyledHeader>
       <StyledProfileContainer>
-        { productList ? (
-          productList.map((product)=>(
-            <RentProductCard 
-            img={product.img}
-            name={product.name}
-            price={product.price}
-            daysRent={2}
-            dayEnd={0}
+        {productList ? (
+          productList.map((product) => (
+            <RentProductCard
+              img={product.img}
+              name={product.name}
+              price={product.price}
+              daysRent={2}
+              dayEnd={0}
             />
           ))
-        ):(
-          null
+        ) : (
+          <StyledProfileEmpty>
+            <p>Você ainda não alugou nenhum produto</p>
+          </StyledProfileEmpty>
         )}
       </StyledProfileContainer>
       <StyledFooter>
