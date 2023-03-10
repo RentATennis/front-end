@@ -25,15 +25,11 @@ const CardProduct = ({
         logged ? (
           <div className="div__figure--true">
             <button>+</button>
-          <figure>
             <img src={img} alt={name} />
-          </figure>
         </div>
         ):(
           <div className="div__figure--false">
-              <figure>
                <img src={img} alt={name} />
-              </figure>
           </div>
         )
       }
