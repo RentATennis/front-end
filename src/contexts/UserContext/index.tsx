@@ -8,8 +8,8 @@ import { iUser, iUserContext, iUserProvider } from "./@types"
 export const UserContext = createContext({} as iUserContext)
 
 const UserProvider = ({ children }: iUserProvider) => {
-  const [loading, setLoading] = useState(false);
-  const [user, setUser] = useState<iUser | null>(null);
+  const [loading, setLoading] = useState(false)
+  const [user, setUser] = useState<iUser | null>(null)
   const navigate = useNavigate()
 
   async function userLogin(formData: iFormLoginValues) {
