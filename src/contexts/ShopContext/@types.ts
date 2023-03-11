@@ -5,6 +5,13 @@ export interface iShopContextProps {
 export interface iShopContext {
   getAllProducts: () => Promise<void>;
   productList: iProduct[];
+  verifyDevolution: (date: number) => string;
+  userProducts?: iProduct[];
+  rentAProduct: (id: number) => void;
+  dynamicModal: boolean;
+  setDynamicModal: React.Dispatch<React.SetStateAction<boolean>>;
+  currentProduct?: iProduct;
+  handleClick: (id: number) => void;
   /* setProductList:; */
 }
 

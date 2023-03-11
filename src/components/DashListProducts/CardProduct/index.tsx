@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { iProduct } from "../../../contexts/ShopContext/@types";
+import { ShopContext } from "../../../contexts/ShopContext/ShopContext";
 import { UserContext } from "../../../contexts/UserContext";
 import { StyledCard } from "./StyledLi";
 
@@ -16,27 +17,23 @@ const CardProduct = ({
   name,
   price,
   size,
-}: iProduct) => { 
-  const{ user } = useContext(UserContext)
-  const logged = true
+}: iProduct) => {
+  const { user } = useContext(UserContext);
+  const { rentAProduct, handleClick, dynamicModal, setDynamicModal } = useContext(ShopContext);
+
   return (
     <StyledCard>
-      {
-        logged ? (
-          <div className="div__figure--true">
-            <button>+</button>
-          <figure>
-            <img src={img} alt={name} />
-          </figure>
+      {user ? (
+        <div className="div__figure--true">
+          <button onClick={() => handleClick(id)}>+</button>
+          <img src={img} alt={name} />
         </div>
-        ):(
-          <div className="div__figure--false">
-              <figure>
-               <img src={img} alt={name} />
-              </figure>
-          </div>
-        )
-      }
+      ) : (
+        <div className="div__figure--false">
+          <button onClick={() => setDynamicModal(!dynamicModal)}>+</button>
+          <img src={img} alt={name} />
+        </div>
+      )}
 
       <div>
         <span className="name__product">{name}</span>

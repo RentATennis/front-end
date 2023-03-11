@@ -3,9 +3,9 @@ import styled from "styled-components"
 export const StyledHeader = styled.header`
   position: fixed;
   margin-bottom: 1px;
-  z-index: 1;
+  z-index: 5;
   top: 0;
-  background-color: var(--color-green-200);
+  background-color: var(--color-primary);
   width: 100vw;
   height: 90px;
   display: flex;
@@ -34,16 +34,22 @@ export const StyledHeader = styled.header`
     color: var(--color-white);
   }
 
-  button{
+  .link{
     width: 120px;
     height: 45px;
     border-radius: 23px;
-    background-color: var(--color-white);
     border: none;
     font-size: 20px;
     font-weight: 600;
     cursor:pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+  }
 
+  .link:hover {
+    filter: contrast(50%);
   }
 
   @media (max-width: 500px) {
