@@ -18,11 +18,10 @@ const CardProduct = ({
   size,
 }: iProduct) => { 
   const{ user } = useContext(UserContext)
-  const logged = true
   return (
     <StyledCard>
       {
-        logged ? (
+        user ? (
           <div className="div__figure--true">
             <button>+</button>
           <figure>

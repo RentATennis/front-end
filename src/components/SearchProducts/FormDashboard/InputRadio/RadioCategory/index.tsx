@@ -5,13 +5,16 @@ import RadioGroup from "@mui/material/RadioGroup"
 import FormControlLabel from "@mui/material/FormControlLabel"
 import FormControl from "@mui/material/FormControl"
 import FormLabel from "@mui/material/FormLabel"
+import { SelectChangeEvent } from "@mui/material"
+import { ShopContext } from "../../../../../contexts/ShopContext/ShopContext"
 
-interface iInputProps {
-  label: string;
-  type: "text" | "email" | "password" | "radio";
-}
 
 const InputRadioCategory = () => {
+  const { category ,setCategory } = React.useContext(ShopContext)
+
+  const handleChangeCategory = (event: SelectChangeEvent) => {
+    setCategory(event.target.value as string);
+  }
   return (
     <FormControl>
       <FormLabel id="demo-radio-buttons-group-label">Categorias</FormLabel>
@@ -19,6 +22,7 @@ const InputRadioCategory = () => {
         aria-labelledby="demo-radio-buttons-group-label"
         defaultValue="AllCat"
         name="radio-buttons-group"
+        onChange={handleChangeCategory}
       >
         <FormControlLabel value="AllCat" control={<Radio />} label="Todos" />
         <FormControlLabel value="Casual" control={<Radio />} label="Casual" />
