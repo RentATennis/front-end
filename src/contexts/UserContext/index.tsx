@@ -1,7 +1,9 @@
+import axios from "axios"
 import { createContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import { iFormLoginValues } from "../../components/Form/LoginForm/@types"
+import { iFormRegisterValues } from "../../components/Form/RegisterForm/@types"
 import { api } from "../../services/api"
 import { iUser, iUserContext, iUserProvider } from "./@types"
 
@@ -12,17 +14,57 @@ const UserProvider = ({ children }: iUserProvider) => {
   const [user, setUser] = useState<iUser | null>(null)
   const navigate = useNavigate()
 
+  // Criar no back-end a possibilidade do auto-login
+
   async function userLogin(formData: iFormLoginValues) {
     try {
       setLoading(true)
       const response = await api.post<iUser>('/login', formData)
       setUser(response.data)
       localStorage.setItem('@RentATennis: Token', response.data.accessToken)
+      localStorage.setItem('@RentATennis: UserID', response.data.user.id);
       toast.success('Login realizado com sucesso!')
       navigate('/dashboard')
     } catch (error) {
-      console.error(error)
+      if (axios.isAxiosError(error)) {
+        if (error.response?.data === 'Incorrect password') {
+          toast.error('Senha incorreta')
+        } else {
+          toast.error('Usuário não encontrado')
+        }
+      }
+    } finally {
+      setLoading(false);
     }
+  }
+
+  async function userRegister(formData: iFormRegisterValues) {
+    try {
+      setLoading(true)
+      const response = await api.post<iUser>('/register', formData)
+      localStorage.setItem('@RentATennis: Token', response.data.accessToken)
+      localStorage.setItem('@RentATennis: UserID', response.data.user.id);
+      toast.success('Cadastro realizado com sucesso!')
+      navigate('/dashboard')
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        if (error.response?.data === 'Email already exists') {
+          toast.error('Email já existe')
+        } else {
+          console.error(error);
+        }
+      }
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  function userLogout() {
+    setUser(null);
+    localStorage.removeItem('@RentATennis: Token')
+    localStorage.removeItem('@RentATennis: UserID')
+    navigate('/')
+    toast.success('Logout realizado com sucesso!')
   }
 
   return (
@@ -31,7 +73,9 @@ const UserProvider = ({ children }: iUserProvider) => {
         loading,
         setLoading,
         user,
-        userLogin
+        userLogin,
+        userRegister,
+        userLogout
       }}
     >
       {children}

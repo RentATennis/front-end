@@ -5,7 +5,13 @@ import StyledFieldset from './styles';
 const Input = ({ label, type, placeholder, register, errors }: iInput) => {
   return (
     <StyledFieldset>
-      <TextField variant="outlined" label={label} type={type} placeholder={placeholder} {...register} />
+      <TextField
+        variant="outlined" 
+        label={label} 
+        type={type} 
+        placeholder={placeholder} 
+        {...register} 
+      />
       {errors ? <p>{errors.message}</p> : null}
     </StyledFieldset>
   )

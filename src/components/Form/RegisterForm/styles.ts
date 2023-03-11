@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-const StyledLoginForm = styled.form`
+const StyledRegisterForm = styled.form`
   background-color: var(--color-white);
   width: 100%;
   max-width: 450px;
@@ -59,4 +59,4 @@ const StyledLoginForm = styled.form`
   }
 `
 
-export default StyledLoginForm
+export default StyledRegisterForm
