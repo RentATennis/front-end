@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledCard = styled.li`
   width: 300px;
-  height: 480px;
+  height: 430px;
   display: flex;
   flex-direction: column;
   gap: 43px;
@@ -20,6 +20,7 @@ export const StyledCard = styled.li`
   width: 237px;
   height: 235px;
   position: relative;
+  box-shadow: 2px 13px 22px -9px;
 }
 
 .div__figure--true{
@@ -31,6 +32,7 @@ export const StyledCard = styled.li`
   width: 237px;
   height: 235px;
   position: relative;
+  box-shadow: 2px 13px 22px -9px;
 }
 
 button{
@@ -45,11 +47,13 @@ button{
   border-radius: 100%;
   font-size: var(--font-size-1);
   font-weight: bold;
+  box-shadow: var(--color-primary) 0px 0px 40px -7px;
 }
 
 button:hover{
   background-color: var(--color-green-200);
   scale: 110%;
+  transition: .2s;
 }
   
   
@@ -62,7 +66,7 @@ button:hover{
 
   img:hover {
     scale: 120%;
-    transition: .5s;
+    transition: .2s;
   }
 
   div{
@@ -70,6 +74,8 @@ button:hover{
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    text-align: center;
+    max-width: 80%; 
   }
 
   .name__product{
