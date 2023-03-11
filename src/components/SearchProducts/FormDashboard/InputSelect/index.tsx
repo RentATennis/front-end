@@ -7,33 +7,51 @@ import Select, { SelectChangeEvent } from "@mui/material/Select"
 import { ShopContext } from "../../../../contexts/ShopContext/ShopContext"
 
 const InputSelect = () => {
-  const [age, setAge] = React.useState("")
-  const { getAllProducts } = React.useContext(ShopContext)
+  const {
+    brands, 
+    setBrands,
+    brandSelect, 
+    setBrandSelect,
+    productList
+  } = React.useContext(ShopContext)
+  
+  
+  React.useEffect(() => {
+    const getBrandsProducts = () => {
+      const allProducts = productList
+      const arrayBrands: string[] = allProducts.map(product => product.brand)  
+      const brandFiltered = Array.from(new Set(arrayBrands))
+      setBrands(brandFiltered)
 
-  const getBrandsProducts = async () => {
-    const allBrands = await getAllProducts()
+    };
+    getBrandsProducts()
 
-  };
-  getBrandsProducts();
+  },[productList])
+
+
 
   const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
+    setBrandSelect(event.target.value as string);
+  
   }
 
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+        <InputLabel id="demo-simple-select-label">Marca</InputLabel>
+
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
-          label="Age"
-          onChange={handleChange}
-        >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          value={brandSelect}
+          label="Marca"
+          onChange={handleChange} 
+          >{ 
+            brands.map(brand => (
+              
+              <MenuItem key={brand} value={brand}>{brand}</MenuItem>
+              
+          ))}
         </Select>
       </FormControl>
     </Box>

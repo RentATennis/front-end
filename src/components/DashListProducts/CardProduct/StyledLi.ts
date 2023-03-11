@@ -42,6 +42,12 @@ button{
   right: 16px;
   width: 50px;
   height: 50px;
+  background-color: var(--color-green-200);
+  border: none;
+  border-radius: 100%;
+  font-size: var(--font-size-1);
+  transition: ease-in-out 0.6s;
+  cursor:pointer;
   background-color: var(--color-primary);
   border: none;
   border-radius: 100%;
@@ -86,5 +92,9 @@ button:hover{
     font-size: var(--font-size-4);
     color: var(--color-green-200);
     font-weight: var(--font-weight-regular);
+  }
+
+  button:hover{
+    background-color: var(--color-green-400)
   }
 `;
