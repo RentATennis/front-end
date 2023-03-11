@@ -22,6 +22,14 @@ export interface iShopContext {
   valueSize:string;
   setValueSize:React.Dispatch<React.SetStateAction<string>>;
 
+  verifyDevolution: (date: number) => string;
+  userProducts?: iProduct[];
+  rentAProduct: (id: number) => void;
+  dynamicModal: boolean;
+  setDynamicModal: React.Dispatch<React.SetStateAction<boolean>>;
+  currentProduct?: iProduct;
+  handleClick: (id: number) => void;
+
 }
 
 export interface iProduct {

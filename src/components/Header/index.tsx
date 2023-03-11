@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Logo from "../../assets/logotipo.png"
 import { StyledHeader } from "./StyledHeader"
 
@@ -9,8 +10,8 @@ const Header = () => {
       </figure>
 
       <div className="button__header">
-        <button className="login">Entrar</button>
-        <button className="register">Cadastrar</button>
+        <Link to={"/login"} className="login link">Entrar</Link>
+        <Link to={"/register"} className="register link">Cadastrar</Link>
       </div>
     </StyledHeader>
   )
