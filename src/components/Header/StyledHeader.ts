@@ -3,9 +3,9 @@ import styled from "styled-components"
 export const StyledHeader = styled.header`
   position: fixed;
   margin-bottom: 1px;
-  z-index: 1;
+  z-index: 5;
   top: 0;
-  background-color: var(--color-green-200);
+  background-color: var(--color-primary);
   width: 100vw;
   height: 90px;
   display: flex;
