@@ -31,7 +31,7 @@ export interface iShopContext {
   dynamicModal: boolean;
   setDynamicModal: React.Dispatch<React.SetStateAction<boolean>>;
   currentProduct?: iProduct;
-  handleClick: (id: number) => void;
+  handleClick: (id: string) => void;
 
 }
 

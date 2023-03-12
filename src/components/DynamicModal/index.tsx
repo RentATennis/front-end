@@ -8,7 +8,7 @@ const DynamicModal = () => {
     useContext(ShopContext);
   return (
     <StyledDynamicModal>
-      <div>
+      <div className="contractModal">
         {currentProduct ? (
           <>
             <span
@@ -22,7 +22,13 @@ const DynamicModal = () => {
               <img src={currentProduct.img} />
               <span>Defina os detalhes do contrato</span>
             </div>
-            <form className="contractModal__form"></form>
+            <form className="contractModal__form">
+              {/* <Imput number com a quantidade de dias de aluguel>
+              <Tag exibindo o price * a quantidade de dias setado no imput acima>
+              <Select exibindo as cidades para retirada do produto> */}
+              <button type="submit">Ver contrato</button>
+              <div className="cancel__btn" onClick={() => setDynamicModal(!dynamicModal)}><span>Cancelar</span></div>
+            </form>
           </>
         ) : (
           <>
