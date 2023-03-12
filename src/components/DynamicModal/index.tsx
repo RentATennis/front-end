@@ -37,6 +37,7 @@ const DynamicModal = () => {
             <div className="contractModal__top">
               <h2>Confirmar aluguel</h2>
               <img src={currentProduct.img} />
+              <p>{currentProduct.name}</p>
               <span>Defina os detalhes do contrato</span>
             </div>
             <form className="contractModal__form">

@@ -25,7 +25,7 @@ align-items: center;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 10px;
+    padding: 30px;
 }
 
 .closeModal {
@@ -73,18 +73,22 @@ div > a:hover {
 
 .contractModal__top {
     width: 80%;
-    height: 300px;
+    height: 320px;
     max-height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: .5rem;
+    gap: 1.5rem;
 }
 
 .contractModal__top > h2 {
     font-size: var(--font-size-4);
     font-weight: var(--font-weight-bold);
+}
+
+.contractModal__top > img {
+    width: 180px;
 }
 
 .contractModal__top > span {
@@ -96,5 +100,17 @@ div > a:hover {
 .contractModal__form {
     width: 80%;
     height: 200px;
+}
+
+.confirm__btn {
+    width: 150px;
+    height: 45px;
+    border-radius: 22px;
+    border: none;
+    outline: none;
+    background-color: var(--color-primary);
+    color: var(--color-grey-400);
+    font-size: var(--font-size-5);
+    font-weight: var(--font-weight-bold);
 }
 `
