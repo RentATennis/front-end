@@ -27,10 +27,10 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
 
   const [ size, setSize ] = useState<string[]>([])
   const [ valueSize, setValueSize ] = useState<string>("")
-  const [productList, setProductList] = useState<iProduct[]>([])
-  const [userProducts, setUserProducts] = useState<iProduct[]>([])
-  const [currentProduct, setCurrentProduct] = useState<iProduct>()
-  const [dynamicModal, setDynamicModal] = useState(false)
+  const [ productList, setProductList ] = useState<iProduct[]>([])
+  const [ userProducts, setUserProducts ] = useState<iProduct[]>([])
+  const [ currentProduct, setCurrentProduct ] = useState<iProduct>()
+  const [ dynamicModal, setDynamicModal ] = useState(false)
 
   const getAllProducts = async () => {
     try {
@@ -52,10 +52,12 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
     }
   }
 
-  const handleClick = (id: number) => {
-      const newSelectedProduct = productList.find((product)=>{product.id === id})
+  const handleClick = (name: string) => {
+      const newSelectedProduct = productList.find((product) => product.name === name)
       setCurrentProduct(newSelectedProduct)
       setDynamicModal(!dynamicModal)
+      console.log(newSelectedProduct)
+      
   }
 
   const verifyDevolution = (date: number) => {
@@ -86,7 +88,6 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
     return false;
     }
     
-    console.log(filterOptions)
     return true;
     });
     }, [filterOptions, productList]);

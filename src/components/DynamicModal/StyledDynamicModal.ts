@@ -12,7 +12,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 
-div {
+.contractModal {
     background-color: var(--color-grey-0);
     height: 500px;
     max-height: fit-content;
@@ -25,7 +25,7 @@ div {
     justify-content: center;
     align-items: center;
     text-align: center;
-    gap: 4rem;
+    padding: 10px;
 }
 
 .closeModal {
@@ -37,6 +37,7 @@ div {
     position: absolute;
     top: 20px;
     right: 30px;
+    z-index: 5;
 }
 
 .closeModal:hover {
@@ -44,7 +45,7 @@ div {
     cursor: pointer;
 }
 
-div > p {
+/* div > p {
     color: var(--color-grey-400);
     font-size: var(--font-size-3);
 }
@@ -68,5 +69,32 @@ div > a {
 div > a:hover {
     filter: contrast(50%);
     transition: .2s;
+} */
+
+.contractModal__top {
+    width: 80%;
+    height: 300px;
+    max-height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+.contractModal__top > h2 {
+    font-size: var(--font-size-4);
+    font-weight: var(--font-weight-bold);
+}
+
+.contractModal__top > span {
+    font-size: var(--font-size-6);
+    font-weight: var(--font-weight-semiBold);
+    margin-top: 10px;
+}
+
+.contractModal__form {
+    width: 80%;
+    height: 200px;
 }
 `
