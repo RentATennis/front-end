@@ -39,8 +39,8 @@ export interface iProduct {
   brand: string;
   category: string;
   color: string;
-  dayEnd: string;
-  dayStart: string;
+  daysRent?: number;
+  store?: string;
   genre: string;
   id: number;
   img: string;

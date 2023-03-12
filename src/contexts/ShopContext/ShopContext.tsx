@@ -14,8 +14,6 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
     color:''
   })
 
-
-
   const [ brands, setBrands ] = useState<string[]>([])
   const [ brandSelect, setBrandSelect ] = useState<string>("")
 
