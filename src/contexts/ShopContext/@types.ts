@@ -48,6 +48,8 @@ export interface iProduct {
   name: string;
   price: number;
   size: number[];
+  store?: string;
+  daysRent?: number;
 }
 
 export interface iFilterOptions {
