@@ -8,7 +8,7 @@ import { ShopContext } from '../../../../../contexts/ShopContext/ShopContext';
 
 const SelectColor = () => {
   
-  const { productList,colors, setColors, valueColor, setValueColor } = React.useContext(ShopContext)
+  const { productList,colors, setColors, valueColor, setValueColor,filterOptions, setFilterOptions } = React.useContext(ShopContext)
 
 React.useEffect(() =>{
     const getAllColors = () => {
@@ -21,7 +21,7 @@ React.useEffect(() =>{
 
 
   const handleChange = (event: SelectChangeEvent) => {
-    setValueColor(event.target.value as string);
+    setFilterOptions({...filterOptions,color:event.target.value as string});
   };
 
   return (
@@ -32,6 +32,7 @@ React.useEffect(() =>{
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={valueColor}
+          defaultValue=""
           label="Cor"
           onChange={handleChange}
         >{colors.map(color => (

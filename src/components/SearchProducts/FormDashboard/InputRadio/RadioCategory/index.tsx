@@ -10,21 +10,21 @@ import { ShopContext } from "../../../../../contexts/ShopContext/ShopContext"
 
 
 const InputRadioCategory = () => {
-  const { category ,setCategory } = React.useContext(ShopContext)
+  const { category ,setCategory,filterOptions, setFilterOptions  } = React.useContext(ShopContext)
 
   const handleChangeCategory = (event: SelectChangeEvent) => {
-    setCategory(event.target.value as string);
+    setFilterOptions({...filterOptions,category:event.target.value as string});
   }
   return (
     <FormControl>
       <FormLabel id="demo-radio-buttons-group-label">Categorias</FormLabel>
       <RadioGroup
         aria-labelledby="demo-radio-buttons-group-label"
-        defaultValue="AllCat"
+        defaultValue=""
         name="radio-buttons-group"
         onChange={handleChangeCategory}
       >
-        <FormControlLabel value="AllCat" control={<Radio />} label="Todos" />
+        <FormControlLabel value="" control={<Radio />} label="Todos" />
         <FormControlLabel value="Casual" control={<Radio />} label="Casual" />
         <FormControlLabel value="Social" control={<Radio />} label="Social" />
       </RadioGroup>

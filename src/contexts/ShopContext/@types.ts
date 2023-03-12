@@ -21,6 +21,9 @@ export interface iShopContext {
   setSize:React.Dispatch<React.SetStateAction<string[]>>;
   valueSize:string;
   setValueSize:React.Dispatch<React.SetStateAction<string>>;
+  filterOptions:iFilterOptions; 
+  setFilterOptions:React.Dispatch<React.SetStateAction<iFilterOptions>>;
+  filteredProducts: iProduct[];
 
   verifyDevolution: (date: number) => string;
   userProducts?: iProduct[];
@@ -45,4 +48,11 @@ export interface iProduct {
   name: string;
   price: number;
   size: number[];
+}
+
+export interface iFilterOptions {
+  category: string;
+  genre: string;
+  brand: string;
+  color: string;
 }

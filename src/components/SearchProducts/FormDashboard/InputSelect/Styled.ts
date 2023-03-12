@@ -6,5 +6,6 @@ export const StyledSelect = styled(Select)`
 {
     background-color: var(--color-grey-200);
     color: white;
+    
 }
 `
