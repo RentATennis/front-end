@@ -29,13 +29,23 @@ const InputSelect = () => {
     getBrandsProducts()
 
   },[productList])
-
-
-
-  const handleChange = (event: SelectChangeEvent) => {
-    setFilterOptions({...filterOptions,brand:event.target.value as string});
   
-  }
+  const handleChange = (event: SelectChangeEvent) => {
+    const selectedBrand = event.target.value as string;
+    setBrandSelect(selectedBrand);
+  
+    if (selectedBrand === "") {
+      setFilterOptions((prevState) => ({
+        ...prevState,
+        brand: "",
+      }));
+    } else {
+      setFilterOptions((prevState) => ({
+        ...prevState,
+        brand: selectedBrand,
+      }));
+    }
+  };
 
   return (
     <Box sx={{ minWidth: 120 }}>
@@ -51,7 +61,6 @@ const InputSelect = () => {
           onChange={handleChange} 
           >
             <MenuItem key="" value="">Todos</MenuItem>
-            
             {brands.map(brand => (<MenuItem key={brand} value={brand}>{brand}</MenuItem>))}
         </Select>
       </FormControl>
