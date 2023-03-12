@@ -12,7 +12,7 @@ const LandingPage = () => {
           <div className='section__logo--container'>
             <Logo />
             <WelcomeMessage />
-            <Link to={'/login'}>Iniciar</Link>
+            <Link to={'/dashboard'}>Iniciar</Link>
           </div>
         </div>
       </StyledContainer>

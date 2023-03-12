@@ -1,5 +1,5 @@
 import axios from "axios"
-import { createContext, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import { iFormLoginValues } from "../../components/Form/LoginForm/@types"
@@ -14,7 +14,29 @@ const UserProvider = ({ children }: iUserProvider) => {
   const [user, setUser] = useState<iUser | null>(null)
   const navigate = useNavigate()
 
-  // Criar no back-end a possibilidade do auto-login
+  useEffect(() => {
+    const autoLogin = async () => {
+      const token = localStorage.getItem('@RentATennis: Token')
+      const userId = localStorage.getItem('@RentATennis: UserID')
+      if (token) {
+        try {
+          const config = {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`
+            }
+          }
+          const response = await api.get<iUser>(`/users/${userId}`, config)
+          setUser(response.data)
+          navigate('dashboard')
+        } catch (error) {
+          localStorage.removeItem('@RentATennis: Token')
+          localStorage.removeItem('@RentATennis: UserID')
+        }
+      }
+    }
+    autoLogin()
+  }, [])
 
   async function userLogin(formData: iFormLoginValues) {
     try {
