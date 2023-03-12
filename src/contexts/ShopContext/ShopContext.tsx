@@ -1,11 +1,20 @@
-import { createContext, useEffect, useState } from "react"
+import { createContext, useEffect, useMemo, useState } from "react"
 import { toast } from "react-toastify"
 import { api } from "../../services/api"
-import { iProduct, iShopContext, iShopContextProps } from "./@types"
+import { iFilterOptions, iProduct, iShopContext, iShopContextProps } from "./@types"
 
 export const ShopContext = createContext({} as iShopContext)
 
 export const ShopProvider = ({ children }: iShopContextProps) => {
+
+  const [filterOptions, setFilterOptions] = useState<iFilterOptions>({
+    category:'',
+    genre:'',
+    brand:'',
+    color:''
+  })
+
+
 
   const [ brands, setBrands ] = useState<string[]>([])
   const [ brandSelect, setBrandSelect ] = useState<string>("")
@@ -13,8 +22,8 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
   const [ colors, setColors ] = useState<string[]>([])
   const [ valueColor, setValueColor ] = useState<string>("");
 
-  const [ category, setCategory ] = useState("AllCat")
-  const [ valueRadioGender, setValueRadioGender ] =useState<string>("AllGender")
+  const [ category, setCategory ] = useState("")
+  const [ valueRadioGender, setValueRadioGender ] =useState<string>("")
 
   const [ size, setSize ] = useState<string[]>([])
   const [ valueSize, setValueSize ] = useState<string>("")
@@ -60,6 +69,29 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
         return `${date} dias`
     }
   }
+
+
+  const filteredProducts = useMemo(() => {
+    return productList.filter((product) => {
+    if (filterOptions.category && product.category !== filterOptions.category) {
+    return false;
+    }
+    if (filterOptions.genre && product.genre !== filterOptions.genre) {
+    return false;
+    }
+    if (filterOptions.brand && product.brand !== filterOptions.brand) {
+    return false;
+    }
+    if (filterOptions.color && product.color !== filterOptions.color) {
+    return false;
+    }
+    
+    console.log(filterOptions)
+    return true;
+    });
+    }, [filterOptions, productList]);
+
+
   return (
     <ShopContext.Provider value={
       { 
@@ -87,7 +119,10 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
         dynamicModal, 
         setDynamicModal, 
         currentProduct, 
-        handleClick
+        handleClick,
+        filterOptions, 
+        setFilterOptions,
+        filteredProducts
       }
     }>
       {children}

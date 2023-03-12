@@ -12,7 +12,9 @@ const InputSelect = () => {
     setBrands,
     brandSelect, 
     setBrandSelect,
-    productList
+    productList,
+    filterOptions, 
+    setFilterOptions
   } = React.useContext(ShopContext)
   
   
@@ -31,7 +33,7 @@ const InputSelect = () => {
 
 
   const handleChange = (event: SelectChangeEvent) => {
-    setBrandSelect(event.target.value as string);
+    setFilterOptions({...filterOptions,brand:event.target.value as string});
   
   }
 
@@ -44,14 +46,13 @@ const InputSelect = () => {
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={brandSelect}
+          defaultValue=""
           label="Marca"
           onChange={handleChange} 
-          >{ 
-            brands.map(brand => (
-              
-              <MenuItem key={brand} value={brand}>{brand}</MenuItem>
-              
-          ))}
+          >
+            <MenuItem key="" value="">Todos</MenuItem>
+            
+            {brands.map(brand => (<MenuItem key={brand} value={brand}>{brand}</MenuItem>))}
         </Select>
       </FormControl>
     </Box>

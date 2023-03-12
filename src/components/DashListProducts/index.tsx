@@ -4,12 +4,12 @@ import CardProduct from "./CardProduct";
 import { StyledUl } from "./SyledUl";
 
 const DashListProducts = () => {
-  const { productList } = useContext(ShopContext)
+  const { productList,filteredProducts } = useContext(ShopContext)
 
 
   return (
     <StyledUl>
-      {productList.map((product) => (
+      {filteredProducts.map((product) => (
         <CardProduct
           key={product.id}
           brand={product.brand}

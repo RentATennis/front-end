@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { iProduct } from "../../../contexts/ShopContext/@types";
 import { ShopContext } from "../../../contexts/ShopContext/ShopContext";
 import { UserContext } from "../../../contexts/UserContext";
@@ -6,7 +6,6 @@ import { StyledCard } from "./StyledLi";
 
 const CardProduct = ({
   brand,
-  category,
   color,
   dayEnd,
   dayStart,
@@ -19,7 +18,8 @@ const CardProduct = ({
   size,
 }: iProduct) => {
   const { user } = useContext(UserContext);
-  const { rentAProduct, handleClick, dynamicModal, setDynamicModal } = useContext(ShopContext);
+  const { rentAProduct, handleClick, dynamicModal, setDynamicModal,brandSelect,valueColor,valueRadioGender,productList, category } = useContext(ShopContext);
+
 
   return (
     <StyledCard>
