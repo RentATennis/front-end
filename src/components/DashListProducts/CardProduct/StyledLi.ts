@@ -13,8 +13,6 @@ export const StyledCard = styled.li`
   position: relative;
   
 .div__figure--false{
-  /* background-image:url('src/assets/DashCardBase.png');
-  background-size:cover; */
   background-color: var(--color-grey-300);
   border-radius: 45px;
   width: 237px;
@@ -24,9 +22,6 @@ export const StyledCard = styled.li`
 }
 
 .div__figure--true{
-  /* background-image:url('src/assets/DashCardBaseLogged.png');
-  background-size: contain;
-  background-repeat: no-repeat; */
   background-color: var(--color-grey-300);
   border-radius: 45px;
   width: 237px;
@@ -54,6 +49,9 @@ button{
   font-size: var(--font-size-1);
   font-weight: bold;
   box-shadow: var(--color-primary) 0px 0px 40px -7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 button:hover{

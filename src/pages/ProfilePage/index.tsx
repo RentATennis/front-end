@@ -16,12 +16,6 @@ const ProfilePage = () => {
   const { user } = useContext(UserContext)
   const navigate = useNavigate()
 
-  useEffect(()=>{
-    const token = localStorage.getItem('@RentATennis: Token')
-    if(!token){
-      navigate("/dashboard")
-    }
-  },[])
   return (
     <StyledProfilePage>
       <StyledProfileHeader>

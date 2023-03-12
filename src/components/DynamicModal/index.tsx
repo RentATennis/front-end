@@ -20,13 +20,14 @@ const DynamicModal = () => {
             <div className="contractModal__top">
               <h2>Confirmar aluguel</h2>
               <img src={currentProduct.img} />
+              <p>{currentProduct.name}</p>
               <span>Defina os detalhes do contrato</span>
             </div>
             <form className="contractModal__form">
               {/* <Imput number com a quantidade de dias de aluguel>
               <Tag exibindo o price * a quantidade de dias setado no imput acima>
               <Select exibindo as cidades para retirada do produto> */}
-              <button type="submit">Ver contrato</button>
+              <button className="confirm__btn" type="submit">Ver contrato</button>
               <div className="cancel__btn" onClick={() => setDynamicModal(!dynamicModal)}><span>Cancelar</span></div>
             </form>
           </>
