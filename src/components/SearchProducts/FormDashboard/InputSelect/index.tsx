@@ -6,6 +6,7 @@ import FormControl from "@mui/material/FormControl"
 import Select, { SelectChangeEvent } from "@mui/material/Select"
 import { ShopContext } from "../../../../contexts/ShopContext/ShopContext"
 
+
 const InputSelect = () => {
   const {
     brands, 
@@ -30,7 +31,7 @@ const InputSelect = () => {
 
   },[productList])
   
-  const handleChange = (event: SelectChangeEvent) => {
+  const handleChange = (event: any) => {
     const selectedBrand = event.target.value as string;
     setBrandSelect(selectedBrand);
   
@@ -55,14 +56,16 @@ const InputSelect = () => {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
+          onChange={handleChange} 
           value={brandSelect}
           defaultValue=""
           label="Marca"
-          onChange={handleChange} 
+          color="success"
           >
             <MenuItem key="" value="">Todos</MenuItem>
             {brands.map(brand => (<MenuItem key={brand} value={brand}>{brand}</MenuItem>))}
         </Select>
+
       </FormControl>
     </Box>
   )
