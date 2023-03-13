@@ -1,5 +1,5 @@
 import axios from "axios"
-import { createContext, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import { iFormLoginValues } from "../../components/Form/LoginForm/@types"
@@ -10,17 +10,51 @@ import { iUser, iUserContext, iUserProvider } from "./@types"
 export const UserContext = createContext({} as iUserContext)
 
 const UserProvider = ({ children }: iUserProvider) => {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [user, setUser] = useState<iUser | null>(null)
   const navigate = useNavigate()
+
+  useEffect(() => {
+    async function autoLogin() {
+      const token = localStorage.getItem('@RentATennis: Token')
+      const userId = localStorage.getItem('@RentATennis: UserID')
+    
+      if (token && userId) {
+        try {
+          
+          setLoading(true)
+          const config = {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`
+            }
+          }
+          const response = await api.get<iUser>(`/users/${userId}`, config)
+          setUser(response.data)
+        } catch (error) {
+          console.error(error)
+          setUser(null)
+          localStorage.removeItem('@RentATennis: Token')
+          localStorage.removeItem('@RentATennis: UserID')
+          navigate('/login')
+        } finally {
+          console.log('OLA MUNDO')
+          setLoading(false)
+        }
+      } else {
+        navigate('/login')
+      }
+    }
+    autoLogin()
+  }, [])
 
   async function userLogin(formData: iFormLoginValues) {
     try {
       setLoading(true)
       const response = await api.post<iUser>('/login', formData)
       setUser(response.data)
-      localStorage.setItem('@RentATennis: Token', response.data.accessToken)
-      localStorage.setItem('@RentATennis: UserID', response.data.user.id);
+      localStorage.setItem('@RentATennis: Token', response.data.accessToken!)
+      localStorage.setItem('@RentATennis: UserID', response.data.user!.id);
       toast.success('Login realizado com sucesso!')
       navigate('/dashboard')
     } catch (error) {
