@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../../contexts/ShopContext/ShopContext";
@@ -7,9 +7,9 @@ import { UserContext } from "../../contexts/UserContext"
 import { StyledDynamicModal } from "./StyledDynamicModal";
 
 const DynamicModal = () => {
-  const { currentProduct, dynamicModal, setDynamicModal } =
-    useContext(ShopContext);
+  const { currentProduct, dynamicModal, setDynamicModal } = useContext(ShopContext)
   const { user } = useContext(UserContext)
+  const [totalRentCost, setTotalRentCost] = useState(0)
   
   interface iFormRentValues {
     daysRent: number;
@@ -23,6 +23,13 @@ const DynamicModal = () => {
     formState: { errors }, 
     reset 
   } = useForm<iFormRentValues>()
+
+  const onSubmit: SubmitHandler<iFormRentValues> = (data) => {
+    const rentCost = currentProduct?.price || 0
+    const daysRent = data.daysRent || 0
+    const totalCost = rentCost * daysRent
+    setTotalRentCost(totalCost)
+  }
 
   return (
     <StyledDynamicModal>
@@ -41,11 +48,10 @@ const DynamicModal = () => {
               <p>{currentProduct?.name}</p>
               <span>Defina os detalhes do contrato</span>
             </div>
-            <form className="rentModal__form">
+            <form className="rentModal__form" onSubmit={handleSubmit(onSubmit)}>
               <div className="dailyCost">
-              <Input label="Diárias" type="number" register={register('daysRent')} errors={errors.daysRent} />
-              {/* <Imput number com a quantidade de dias de aluguel>
-              <Tag exibindo o price * a quantidade de dias setado no imput acima> */}
+                <Input label="Diárias" type="number" register={register('daysRent')} errors={errors.daysRent} />
+                <p>Total do aluguel: R$ {totalRentCost.toFixed(2)}</p>
               </div>
               {/*<Select exibindo as cidades para retirada do produto> */}
               <div className="rentForm__btns">

@@ -10,6 +10,7 @@ export interface iUserContext {
   loading: boolean
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
   user: iUser | null
+  setUser: React.Dispatch<React.SetStateAction<iUser | null>>
   userLogin: (formData: iFormLoginValues) => Promise<void>
   userRegister: (formData: iFormRegisterValues) => Promise<void>
   userLogout: () => void
