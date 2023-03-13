@@ -14,7 +14,7 @@ align-items: center;
 
 .rentModal {
     background-color: var(--color-grey-0);
-    height: 500px;
+    height: 600px;
     max-height: fit-content;
     width: 600px;
     max-width: 80%;
@@ -84,7 +84,7 @@ align-items: center;
 }
 
 .rentModal__top {
-    width: 80%;
+    width: 90%;
     height: 320px;
     max-height: fit-content;
     display: flex;
@@ -120,17 +120,31 @@ align-items: center;
 }
 
 .dailyCost {
-    border: solid;
-    width: 90%;
-    height: 50px;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+}
+
+.dailyInput {
+    width: 150px;
+}
+
+.dailyCost > h3 {
+    width: 120px;
+    color: var(--color-primary);
+    font-size: var(--font-size-4);
+    font-weight: var(--font-weight-bold);
 }
 
 .rentForm__btns {
     display: flex;
-    width: 90%;
+    width: 100%;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 5%;
 }
 
 .confirm__btn {

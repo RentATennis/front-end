@@ -7,8 +7,6 @@ import { StyledCard } from "./StyledLi";
 const CardProduct = ({
   brand,
   color,
-  dayEnd,
-  dayStart,
   genre,
   id,
   img,
