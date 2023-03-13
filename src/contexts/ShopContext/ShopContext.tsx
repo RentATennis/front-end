@@ -31,6 +31,7 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
   const [ currentProduct, setCurrentProduct ] = useState<iProduct>()
   const [ dynamicModal, setDynamicModal ] = useState(false)
   const [ contractModal, setContractModal ] = useState(false)
+  const [totalRentCost, setTotalRentCost] = useState(0)
 
   const getAllProducts = async () => {
     try {
@@ -60,7 +61,7 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
   const handleClick = (name: string) => {
       const newSelectedProduct = productList.find((product) => product.name === name)
       setCurrentProduct(newSelectedProduct)
-      setDynamicModal(!dynamicModal)      
+      setDynamicModal(!dynamicModal)
   }
 
   const verifyDevolution = (date: number) => {
@@ -124,12 +125,15 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
         setDynamicModal,
         contractModal,
         setContractModal, 
-        currentProduct, 
+        currentProduct,
+        setCurrentProduct, 
         handleClick,
         filterOptions, 
         setFilterOptions,
         filteredProducts,
-        handleContractModal
+        handleContractModal,
+        totalRentCost, 
+        setTotalRentCost,
       }
     }>
       {children}

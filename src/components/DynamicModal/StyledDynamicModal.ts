@@ -128,8 +128,14 @@ align-items: center;
     gap: 5%;
 }
 
-.dailyInput {
-    width: 150px;
+Input {
+    width: 120px;
+    height: 35px;
+    padding-left: .5rem;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid var(--color-primary);
+    border-radius: 5px;
 }
 
 .dailyCost > h3 {

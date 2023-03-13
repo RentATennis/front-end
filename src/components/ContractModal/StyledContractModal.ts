@@ -14,9 +14,9 @@ align-items: center;
 
 .contractModal__container {
     background-color: var(--color-grey-0);
-    height: 700px;
+    height: 500px;
     max-height: fit-content;
-    width: 500px;
+    width: 600px;
     max-width: 80%;
     border-radius: 15px;
     position: relative;
@@ -57,5 +57,26 @@ align-items: center;
     text-align: left;
     justify-content: start;
     overflow-y: scroll;
+}
+
+.contractModal__Content h2 {
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.contractModal__Content h3 {
+    font-weight: var(--font-weight-semiBold);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin: 5px 5px 0px 0px;
+    font-size: var(--font-size-5);
+}
+
+strong {
+    font-weight: var(--font-weight-semiBold);
 }
 `

@@ -7,7 +7,7 @@ export const StyledProfileHeader = styled.header`
   top: 0;
   background-color: var(--color-primary);
   width: 100vw;
-  height: 120px;
+  height: 170px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -19,7 +19,7 @@ export const StyledProfileHeader = styled.header`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   .profile{
@@ -56,17 +56,18 @@ export const StyledProfileHeader = styled.header`
     color: var(--color-grey-400);
   }
 
-  .link {
+  .link{
+    width: 120px;
+    height: 45px;
+    border-radius: 23px;
     border: none;
-    width: 5rem;
-    height: 25px;
-    border-radius: 22.5px;
-    text-decoration: none;
-    font-size: var(--font-size-5);
-    font-weight: var(--font-weight-semiBold);
+    font-size: 20px;
+    font-weight: 600;
+    cursor:pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
   }
 
   .link:hover {
