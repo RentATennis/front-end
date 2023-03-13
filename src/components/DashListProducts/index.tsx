@@ -15,8 +15,6 @@ const DashListProducts = () => {
           brand={product.brand}
           category={product.category}
           color={product.color}
-          dayEnd={product.dayEnd}
-          dayStart={product.dayStart}
           genre={product.genre}
           id={product.id}
           img={product.img}

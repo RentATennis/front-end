@@ -24,15 +24,17 @@ export interface iShopContext {
   filterOptions:iFilterOptions; 
   setFilterOptions:React.Dispatch<React.SetStateAction<iFilterOptions>>;
   filteredProducts: iProduct[];
+  handleContractModal: () => void;
 
   verifyDevolution: (date: number) => string;
   userProducts?: iProduct[];
   rentAProduct: (id: number) => void;
   dynamicModal: boolean;
   setDynamicModal: React.Dispatch<React.SetStateAction<boolean>>;
+  contractModal: boolean;
+  setContractModal: React.Dispatch<React.SetStateAction<boolean>>;
   currentProduct?: iProduct;
   handleClick: (id: string) => void;
-
 }
 
 export interface iProduct {

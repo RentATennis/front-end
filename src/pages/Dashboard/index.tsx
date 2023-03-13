@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import ContractModal from "../../components/ContractModal/ContractModal";
 import DashListProducts from "../../components/DashListProducts";
 import DynamicModal from "../../components/DynamicModal";
 import Header from "../../components/Header";
@@ -10,7 +11,7 @@ import { ShopContext } from "../../contexts/ShopContext/ShopContext";
 import { StyledDivInputs } from "./Styles";
 
 const Dashboard = () => {
-  const {dynamicModal} = useContext(ShopContext)
+  const {dynamicModal, contractModal} = useContext(ShopContext)
   return (
     <>
       <Header />
@@ -24,6 +25,7 @@ const Dashboard = () => {
     
       <DashListProducts />
       {dynamicModal === true ? <DynamicModal/> : null}
+      {contractModal === true ? <ContractModal/> : null}
     </>
   );
 };
