@@ -14,29 +14,31 @@ const UserProvider = ({ children }: iUserProvider) => {
   const [user, setUser] = useState<iUser | null>(null)
   const navigate = useNavigate()
 
-  useEffect(() => {
-    const autoLogin = async () => {
-      const token = localStorage.getItem('@RentATennis: Token')
-      const userId = localStorage.getItem('@RentATennis: UserID')
-      if (token) {
-        try {
-          const config = {
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Bearer ${token}`
-            }
-          }
-          const response = await api.get<iUser>(`/users/${userId}`, config)
-          setUser(response.data)
-          navigate('dashboard')
-        } catch (error) {
-          localStorage.removeItem('@RentATennis: Token')
-          localStorage.removeItem('@RentATennis: UserID')
-        }
-      }
-    }
-    autoLogin()
-  }, [])
+  // AutoLogin desabilitado para correção
+
+  // useEffect(() => {
+  //   const autoLogin = async () => {
+  //     const token = localStorage.getItem('@RentATennis: Token')
+  //     const userId = localStorage.getItem('@RentATennis: UserID')
+  //     if (token) {
+  //       try {
+  //         const config = {
+  //           headers: {
+  //             'Content-Type': 'application/json',
+  //             Authorization: `Bearer ${token}`
+  //           }
+  //         }
+  //         const response = await api.get<iUser>(`/users/${userId}`, config)
+  //         setUser(response.data)
+  //         navigate('dashboard')
+  //       } catch (error) {
+  //         localStorage.removeItem('@RentATennis: Token')
+  //         localStorage.removeItem('@RentATennis: UserID')
+  //       }
+  //     }
+  //   }
+  //   autoLogin()
+  // }, [])
 
   async function userLogin(formData: iFormLoginValues) {
     try {
