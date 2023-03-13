@@ -38,7 +38,7 @@ const UserProvider = ({ children }: iUserProvider) => {
           localStorage.removeItem('@RentATennis: UserID')
           navigate('/login')
         } finally {
-          console.log('OLA MUNDO')
+
           setLoading(false)
         }
       } else {
