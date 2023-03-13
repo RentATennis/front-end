@@ -23,7 +23,7 @@ const CardProduct = ({
 
   return (
     <StyledCard>
-      {!user ? (
+      {user ? (
         <div className="div__figure--true">
           <button onClick={() => handleClick(name)}>+</button>
           <img src={img} alt={name} />

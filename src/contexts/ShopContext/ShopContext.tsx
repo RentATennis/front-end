@@ -53,9 +53,7 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
   const handleClick = (name: string) => {
       const newSelectedProduct = productList.find((product) => product.name === name)
       setCurrentProduct(newSelectedProduct)
-      setDynamicModal(!dynamicModal)
-      console.log(newSelectedProduct)
-      
+      setDynamicModal(!dynamicModal)      
   }
 
   const verifyDevolution = (date: number) => {

@@ -12,7 +12,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 
-.contractModal {
+.rentModal {
     background-color: var(--color-grey-0);
     height: 500px;
     max-height: fit-content;
@@ -26,13 +26,16 @@ align-items: center;
     align-items: center;
     text-align: center;
     padding: 30px;
+    gap: 1rem;
 }
 
 .closeModal {
     width: 25px;
-    height: 30px;
+    height: 25px;
     display: flex;
     justify-content: center;
+    background-color: var(--color-grey-50);
+    border-radius: 50%;
     align-items: center;
     position: absolute;
     top: 20px;
@@ -41,16 +44,25 @@ align-items: center;
 }
 
 .closeModal:hover {
+    filter: contrast(50%);
     transition: .2s;
     cursor: pointer;
 }
 
-/* div > p {
+.empty__dynamicModal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.empty__dynamicModal > p {
     color: var(--color-grey-400);
     font-size: var(--font-size-3);
 }
 
-div > a {
+.empty__dynamicModal > a {
     width: 120px;
     height: 45px;
     border-radius: 23px;
@@ -66,12 +78,12 @@ div > a {
     background-color: var(--color-primary);
 }
 
-div > a:hover {
+.empty__dynamicModal > a:hover {
     filter: contrast(50%);
     transition: .2s;
-} */
+}
 
-.contractModal__top {
+.rentModal__top {
     width: 80%;
     height: 320px;
     max-height: fit-content;
@@ -82,24 +94,43 @@ div > a:hover {
     gap: 1.5rem;
 }
 
-.contractModal__top > h2 {
+.rentModal__top > h2 {
     font-size: var(--font-size-4);
     font-weight: var(--font-weight-bold);
 }
 
-.contractModal__top > img {
+.rentModal__top > img {
     width: 180px;
 }
 
-.contractModal__top > span {
+.rentModal__top > span {
     font-size: var(--font-size-6);
     font-weight: var(--font-weight-semiBold);
     margin-top: 10px;
 }
 
-.contractModal__form {
+.rentModal__form {
     width: 80%;
     height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.dailyCost {
+    border: solid;
+    width: 90%;
+    height: 50px;
+}
+
+.rentForm__btns {
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
 }
 
 .confirm__btn {
@@ -112,5 +143,32 @@ div > a:hover {
     color: var(--color-grey-400);
     font-size: var(--font-size-5);
     font-weight: var(--font-weight-bold);
+    cursor: pointer;
+}
+
+.confirm__btn:hover {
+    filter: contrast(50%);
+    transition: .2s;
+}
+
+.cancel__btn {
+    width: 150px;
+    height: 45px;
+    border-radius: 22px;
+    border: none;
+    outline: none;
+    background-color: var(--color-grey-400);
+    color: var(--color-grey-0);
+    font-size: var(--font-size-5);
+    font-weight: var(--font-weight-bold);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cancel__btn:hover {
+    filter: contrast(50%);
+    transition: .2s;
 }
 `
