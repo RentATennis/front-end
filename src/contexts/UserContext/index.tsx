@@ -69,7 +69,7 @@ const UserProvider = ({ children }: iUserProvider) => {
       localStorage.setItem('@RentATennis: Token', response.data.accessToken)
       localStorage.setItem('@RentATennis: UserID', response.data.user.id);
       toast.success('Cadastro realizado com sucesso!')
-      navigate('/dashboard')
+      navigate('/login')
     } catch (error) {
       if (axios.isAxiosError(error)) {
         if (error.response?.data === 'Email already exists') {

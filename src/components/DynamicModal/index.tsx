@@ -3,26 +3,26 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../../contexts/ShopContext/ShopContext";
 import Input from "../Input";
-import { UserContext } from "../../contexts/UserContext"
+import { UserContext } from "../../contexts/UserContext";
 import { StyledDynamicModal } from "./StyledDynamicModal";
 
 const DynamicModal = () => {
-  const { currentProduct, dynamicModal, setDynamicModal } =
+  const { currentProduct, dynamicModal, setDynamicModal, contractModal, setContractModal } =
     useContext(ShopContext);
-  const { user } = useContext(UserContext)
-  
+  const { user } = useContext(UserContext);
+
   interface iFormRentValues {
     daysRent: number;
     store: string;
     rentCost: number;
   }
-    
-  const { 
-    register, 
-    handleSubmit, 
-    formState: { errors }, 
-    reset 
-  } = useForm<iFormRentValues>()
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<iFormRentValues>();
 
   return (
     <StyledDynamicModal>
@@ -41,16 +41,29 @@ const DynamicModal = () => {
               <p>{currentProduct?.name}</p>
               <span>Defina os detalhes do contrato</span>
             </div>
-            <form className="rentModal__form">
+            <form className="rentModal__form" >
               <div className="dailyCost">
-              <Input label="Diárias" type="number" register={register('daysRent')} errors={errors.daysRent} />
-              {/* <Imput number com a quantidade de dias de aluguel>
-              <Tag exibindo o price * a quantidade de dias setado no imput acima> */}
+                <div className="dailyInput">
+                  <Input
+                    label="Diárias"
+                    type="number"
+                    register={register("daysRent")}
+                    errors={errors.daysRent}
+                  />
+                </div>
+                <h3>{"R$ 180,00"}</h3>
               </div>
               {/*<Select exibindo as cidades para retirada do produto> */}
               <div className="rentForm__btns">
-                <button className="confirm__btn" type="submit">Ver contrato</button>
-                <div className="cancel__btn" onClick={() => setDynamicModal(!dynamicModal)}><span>Cancelar</span></div>
+                <button className="confirm__btn" type="submit">
+                  Ver contrato
+                </button>
+                <div
+                  className="cancel__btn"
+                  onClick={() => setDynamicModal(!dynamicModal)}
+                >
+                  <span>Cancelar</span>
+                </div>
               </div>
             </form>
           </>

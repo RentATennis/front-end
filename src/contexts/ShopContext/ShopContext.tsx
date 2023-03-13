@@ -25,10 +25,12 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
 
   const [ size, setSize ] = useState<string[]>([])
   const [ valueSize, setValueSize ] = useState<string>("")
+
   const [ productList, setProductList ] = useState<iProduct[]>([])
   const [ userProducts, setUserProducts ] = useState<iProduct[]>([])
   const [ currentProduct, setCurrentProduct ] = useState<iProduct>()
   const [ dynamicModal, setDynamicModal ] = useState(false)
+  const [ contractModal, setContractModal ] = useState(false)
 
   const getAllProducts = async () => {
     try {
@@ -48,6 +50,11 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
     if(productToAdd !== undefined){
       setUserProducts([...userProducts, productToAdd])
     }
+  }
+
+  const handleContractModal = () => {
+    setContractModal(!contractModal)
+    setDynamicModal(!dynamicModal)
   }
 
   const handleClick = (name: string) => {
@@ -114,12 +121,15 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
         userProducts, 
         rentAProduct, 
         dynamicModal, 
-        setDynamicModal, 
+        setDynamicModal,
+        contractModal,
+        setContractModal, 
         currentProduct, 
         handleClick,
         filterOptions, 
         setFilterOptions,
-        filteredProducts
+        filteredProducts,
+        handleContractModal
       }
     }>
       {children}
