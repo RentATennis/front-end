@@ -5,17 +5,9 @@ import { UserContext } from "../../../contexts/UserContext";
 import { StyledCard } from "./StyledLi";
 
 const CardProduct = ({
-  brand,
-  color,
-  dayEnd,
-  dayStart,
-  genre,
-  id,
   img,
-  isRented,
   name,
   price,
-  size,
 }: iProduct) => {
   const { user } = useContext(UserContext);
   const { rentAProduct, handleClick, dynamicModal, setDynamicModal,brandSelect,valueColor,valueRadioGender,productList, category } = useContext(ShopContext);

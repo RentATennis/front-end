@@ -20,9 +20,22 @@ React.useEffect(() =>{
 },[productList])
 
 
-  const handleChange = (event: SelectChangeEvent) => {
-    setFilterOptions({...filterOptions,color:event.target.value as string});
-  };
+const handleChange = (event: SelectChangeEvent) => {
+  const colorSelect = event.target.value as string;
+  setValueColor(colorSelect);
+
+  if (colorSelect === "") {
+    setFilterOptions((prevState) => ({
+      ...prevState,
+      color: "",
+    }));
+  } else {
+    setFilterOptions((prevState) => ({
+      ...prevState,
+      color: colorSelect,
+    }));
+  }
+};
 
   return (
     <Box sx={{ minWidth: 120 }}>
@@ -35,13 +48,10 @@ React.useEffect(() =>{
           defaultValue=""
           label="Cor"
           onChange={handleChange}
-        >{colors.map(color => (
-
-            <MenuItem key={color} value={color}>{color}</MenuItem>
-
-        ))
-
-        }
+          color="success"
+        >
+          <MenuItem key="" value= "">Todos</MenuItem>
+          {colors.map(color => ( <MenuItem key={color} value={color}>{color}</MenuItem>))}
 
         </Select>
       </FormControl>
