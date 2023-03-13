@@ -1,8 +1,12 @@
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
-import { ShopContext } from "../../contexts/ShopContext/ShopContext";
-import { UserContext } from "../../contexts/UserContext";
-import { StyledDynamicModal } from "./StyledDynamicModal";
+
+import { useContext, useState } from "react"
+import { SubmitHandler, useForm } from "react-hook-form"
+import { Link } from "react-router-dom"
+import { ShopContext } from "../../contexts/ShopContext/ShopContext"
+import Input from "../Input"
+import { UserContext } from "../../contexts/UserContext"
+import { StyledDynamicModal } from "./StyledDynamicModal"
+import StoresSelect from "./StoresSelect"
 
 const DynamicModal = () => {
   const { currentProduct, setCurrentProduct, dynamicModal, setDynamicModal, contractModal, setContractModal, totalRentCost, setTotalRentCost, handleContractModal } = useContext(ShopContext)
@@ -47,7 +51,7 @@ const DynamicModal = () => {
                 </div>
                 <h3>{totalRentCost.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</h3>
               </div>
-              {/*<Select exibindo as cidades para retirada do produto> */}
+              <StoresSelect />
               <div className="rentForm__btns">
                 <button className="confirm__btn" type="button" onClick={() => handleContractModal()}>
                   Ver contrato
@@ -77,7 +81,7 @@ const DynamicModal = () => {
         )}
       </div>
     </StyledDynamicModal>
-  );
-};
+  )
+}
 
-export default DynamicModal;
+export default DynamicModal

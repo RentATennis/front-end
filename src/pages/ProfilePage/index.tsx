@@ -13,6 +13,7 @@ import { StyledProfileHeader } from "./StyledProfileHeader"
 
 const ProfilePage = () => {
   const { productList, userProducts } = useContext(ShopContext)
+
   const { user, userLogout } = useContext(UserContext)
   const navigate = useNavigate()
 
@@ -21,8 +22,10 @@ const ProfilePage = () => {
       <StyledProfileHeader>
         <nav>
           <div className="profile">
+
             <Avatar sx={{ bgcolor: deepOrange[500]}}>{user?.user.name[0]}</Avatar>
             <h2>{user?.user.name}</h2>
+
           </div>
           <div className="navContent">
             <Link to={"/dashboard"} className="link white">Voltar</Link>
