@@ -1,11 +1,28 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../../contexts/ShopContext/ShopContext";
+import Input from "../Input";
 import { StyledDynamicModal } from "./StyledDynamicModal";
 
 const DynamicModal = () => {
   const { currentProduct, dynamicModal, setDynamicModal } =
     useContext(ShopContext);
+  
+  interface iFormRentValues {
+    daysRent: number;
+    store: string;
+    rentCost: number;
+  }
+    
+  const { 
+    register, 
+    handleSubmit, 
+    formState: { errors }, 
+    reset 
+  } = useForm<iFormRentValues>()
+
+
   return (
     <StyledDynamicModal>
       <div className="contractModal">
@@ -27,7 +44,8 @@ const DynamicModal = () => {
               {/* <Imput number com a quantidade de dias de aluguel>
               <Tag exibindo o price * a quantidade de dias setado no imput acima>
               <Select exibindo as cidades para retirada do produto> */}
-              <button className="confirm__btn" type="submit">Ver contrato</button>
+              <Input label="Diárias" type="number" register={register('daysRent')} errors={errors.daysRent} />
+              <button type="submit">Ver contrato</button>
               <div className="cancel__btn" onClick={() => setDynamicModal(!dynamicModal)}><span>Cancelar</span></div>
             </form>
           </>

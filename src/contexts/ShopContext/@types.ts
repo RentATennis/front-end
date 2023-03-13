@@ -39,8 +39,8 @@ export interface iProduct {
   brand: string;
   category: string;
   color: string;
-  dayEnd: string;
-  dayStart: string;
+  daysRent?: number;
+  store?: string;
   genre: string;
   id: number;
   img: string;
@@ -48,8 +48,6 @@ export interface iProduct {
   name: string;
   price: number;
   size: number[];
-  store?: string;
-  daysRent?: number;
 }
 
 export interface iFilterOptions {
