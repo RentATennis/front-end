@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../../contexts/ShopContext/ShopContext";
@@ -7,10 +7,10 @@ import { UserContext } from "../../contexts/UserContext";
 import { StyledDynamicModal } from "./StyledDynamicModal";
 
 const DynamicModal = () => {
-  const { currentProduct, dynamicModal, setDynamicModal, contractModal, setContractModal } =
-    useContext(ShopContext);
-  const { user } = useContext(UserContext);
-
+  const { currentProduct, dynamicModal, setDynamicModal, contractModal, setContractModal } = useContext(ShopContext)
+  const { user } = useContext(UserContext)
+  const [totalRentCost, setTotalRentCost] = useState(0)
+  
   interface iFormRentValues {
     daysRent: number;
     store: string;
@@ -23,6 +23,13 @@ const DynamicModal = () => {
     formState: { errors },
     reset,
   } = useForm<iFormRentValues>();
+
+  const onSubmit: SubmitHandler<iFormRentValues> = (data) => {
+    const rentCost = currentProduct?.price || 0
+    const daysRent = data.daysRent || 0
+    const totalCost = rentCost * daysRent
+    setTotalRentCost(totalCost)
+  }
 
   return (
     <StyledDynamicModal>
@@ -41,7 +48,8 @@ const DynamicModal = () => {
               <p>{currentProduct?.name}</p>
               <span>Defina os detalhes do contrato</span>
             </div>
-            <form className="rentModal__form" >
+
+            <form className="rentModal__form" onSubmit={handleSubmit(onSubmit)}>
               <div className="dailyCost">
                 <div className="dailyInput">
                   <Input
@@ -51,7 +59,7 @@ const DynamicModal = () => {
                     errors={errors.daysRent}
                   />
                 </div>
-                <h3>{"R$ 180,00"}</h3>
+                <h3>R$ {totalRentCost.toFixed(2)}</h3>
               </div>
               {/*<Select exibindo as cidades para retirada do produto> */}
               <div className="rentForm__btns">

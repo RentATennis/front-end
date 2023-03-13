@@ -1,5 +1,5 @@
 import axios from "axios"
-import { createContext, useEffect, useState } from "react"
+import { createContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import { iFormLoginValues } from "../../components/Form/LoginForm/@types"
@@ -13,32 +13,6 @@ const UserProvider = ({ children }: iUserProvider) => {
   const [loading, setLoading] = useState(false)
   const [user, setUser] = useState<iUser | null>(null)
   const navigate = useNavigate()
-
-  // AutoLogin desabilitado para correção
-
-  // useEffect(() => {
-  //   const autoLogin = async () => {
-  //     const token = localStorage.getItem('@RentATennis: Token')
-  //     const userId = localStorage.getItem('@RentATennis: UserID')
-  //     if (token) {
-  //       try {
-  //         const config = {
-  //           headers: {
-  //             'Content-Type': 'application/json',
-  //             Authorization: `Bearer ${token}`
-  //           }
-  //         }
-  //         const response = await api.get<iUser>(`/users/${userId}`, config)
-  //         setUser(response.data)
-  //         navigate('dashboard')
-  //       } catch (error) {
-  //         localStorage.removeItem('@RentATennis: Token')
-  //         localStorage.removeItem('@RentATennis: UserID')
-  //       }
-  //     }
-  //   }
-  //   autoLogin()
-  // }, [])
 
   async function userLogin(formData: iFormLoginValues) {
     try {
@@ -65,9 +39,7 @@ const UserProvider = ({ children }: iUserProvider) => {
   async function userRegister(formData: iFormRegisterValues) {
     try {
       setLoading(true)
-      const response = await api.post<iUser>('/register', formData)
-      localStorage.setItem('@RentATennis: Token', response.data.accessToken)
-      localStorage.setItem('@RentATennis: UserID', response.data.user.id);
+      await api.post<iUser>('/register', formData)
       toast.success('Cadastro realizado com sucesso!')
       navigate('/login')
     } catch (error) {
@@ -97,6 +69,7 @@ const UserProvider = ({ children }: iUserProvider) => {
         loading,
         setLoading,
         user,
+        setUser,
         userLogin,
         userRegister,
         userLogout
