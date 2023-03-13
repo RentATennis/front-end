@@ -25,6 +25,8 @@ export interface iShopContext {
   setFilterOptions:React.Dispatch<React.SetStateAction<iFilterOptions>>;
   filteredProducts: iProduct[];
   handleContractModal: () => void;
+  totalRentCost: number;
+  setTotalRentCost: React.Dispatch<React.SetStateAction<number>>;
 
   verifyDevolution: (date: number) => string;
   userProducts?: iProduct[];
@@ -34,6 +36,7 @@ export interface iShopContext {
   contractModal: boolean;
   setContractModal: React.Dispatch<React.SetStateAction<boolean>>;
   currentProduct?: iProduct;
+  setCurrentProduct: React.Dispatch<React.SetStateAction<iProduct | undefined>>;
   handleClick: (id: string) => void;
 }
 

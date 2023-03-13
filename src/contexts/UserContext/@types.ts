@@ -17,12 +17,17 @@ export interface iUserContext {
 }
 
 export interface iUser {
-  accessToken: string;
-  user: {
+  accessToken?: string;
+  user?: {
     email: string;
     name: string;
     cpf: string;
     celular: string;
     id: string;
-  }
+  },
+  email?: string;
+  name?: string;
+  cpf?: string;
+  celular?: string;
+  id?: string;
 }

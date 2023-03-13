@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import Avatar from "@mui/material/Avatar"
-import { lightBlue } from "@mui/material/colors"
+import { deepOrange } from "@mui/material/colors"
 import { StyledProfilePage } from "./StyledProfilePage"
 import { UserContext } from "../../contexts/UserContext"
 import { StyledFooter } from "./StyledFooter"
@@ -13,7 +13,8 @@ import { StyledProfileHeader } from "./StyledProfileHeader"
 
 const ProfilePage = () => {
   const { productList, userProducts } = useContext(ShopContext)
-  const { user } = useContext(UserContext)
+
+  const { user, userLogout } = useContext(UserContext)
   const navigate = useNavigate()
 
   return (
@@ -21,12 +22,14 @@ const ProfilePage = () => {
       <StyledProfileHeader>
         <nav>
           <div className="profile">
-            <Avatar sx={{ bgcolor: lightBlue }} alt={user?.user.name}></Avatar>
+
+            <Avatar sx={{ bgcolor: deepOrange[500]}}>{user?.user.name[0]}</Avatar>
             <h2>{user?.user.name}</h2>
+
           </div>
           <div className="navContent">
             <Link to={"/dashboard"} className="link white">Voltar</Link>
-            <button className="link black">Sair</button>
+            <button className="link black" onClick={() => userLogout()}>Sair</button>
           </div>
         </nav>
       </StyledProfileHeader>
