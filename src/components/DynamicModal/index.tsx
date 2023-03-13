@@ -1,10 +1,11 @@
-import { useContext, useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import { ShopContext } from "../../contexts/ShopContext/ShopContext";
-import Input from "../Input";
-import { UserContext } from "../../contexts/UserContext";
-import { StyledDynamicModal } from "./StyledDynamicModal";
+import { useContext, useState } from "react"
+import { SubmitHandler, useForm } from "react-hook-form"
+import { Link } from "react-router-dom"
+import { ShopContext } from "../../contexts/ShopContext/ShopContext"
+import Input from "../Input"
+import { UserContext } from "../../contexts/UserContext"
+import { StyledDynamicModal } from "./StyledDynamicModal"
+import StoresSelect from "./StoresSelect"
 
 const DynamicModal = () => {
   const { currentProduct, dynamicModal, setDynamicModal, contractModal, setContractModal } = useContext(ShopContext)
@@ -22,7 +23,7 @@ const DynamicModal = () => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<iFormRentValues>();
+  } = useForm<iFormRentValues>()
 
   const onSubmit: SubmitHandler<iFormRentValues> = (data) => {
     const rentCost = currentProduct?.price || 0
@@ -59,9 +60,9 @@ const DynamicModal = () => {
                     errors={errors.daysRent}
                   />
                 </div>
-                <h3>R$ {totalRentCost.toFixed(2)}</h3>
+                <h3>{totalRentCost.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</h3>
               </div>
-              {/*<Select exibindo as cidades para retirada do produto> */}
+              <StoresSelect />
               <div className="rentForm__btns">
                 <button className="confirm__btn" type="submit">
                   Ver contrato
@@ -91,7 +92,7 @@ const DynamicModal = () => {
         )}
       </div>
     </StyledDynamicModal>
-  );
-};
+  )
+}
 
-export default DynamicModal;
+export default DynamicModal
