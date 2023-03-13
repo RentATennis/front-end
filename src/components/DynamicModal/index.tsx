@@ -1,13 +1,29 @@
-import React, { useContext } from "react"
-import { Link } from "react-router-dom"
-import { ShopContext } from "../../contexts/ShopContext/ShopContext"
+import { useContext } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import { ShopContext } from "../../contexts/ShopContext/ShopContext";
+import Input from "../Input";
 import { UserContext } from "../../contexts/UserContext"
-import { StyledDynamicModal } from "./StyledDynamicModal"
+import { StyledDynamicModal } from "./StyledDynamicModal";
 
 const DynamicModal = () => {
   const { currentProduct, dynamicModal, setDynamicModal } =
-    useContext(ShopContext)
+    useContext(ShopContext);
   const { user } = useContext(UserContext)
+  
+  interface iFormRentValues {
+    daysRent: number;
+    store: string;
+    rentCost: number;
+  }
+    
+  const { 
+    register, 
+    handleSubmit, 
+    formState: { errors }, 
+    reset 
+  } = useForm<iFormRentValues>()
+
   return (
     <StyledDynamicModal>
       <div className="rentModal">
@@ -27,6 +43,7 @@ const DynamicModal = () => {
             </div>
             <form className="rentModal__form">
               <div className="dailyCost">
+              <Input label="Diárias" type="number" register={register('daysRent')} errors={errors.daysRent} />
               {/* <Imput number com a quantidade de dias de aluguel>
               <Tag exibindo o price * a quantidade de dias setado no imput acima> */}
               </div>
