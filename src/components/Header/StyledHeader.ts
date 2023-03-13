@@ -25,11 +25,14 @@ export const StyledHeader = styled.header`
     gap: 32px;
   }
 
-  .login{
+  .login,
+  .profile__button{
     background-color: var(--color-white);
+    color:black
   }
 
-  .register{
+  .register,
+  .logout__button{
     background-color: var(--color-grey-400);
     color: var(--color-white);
   }
