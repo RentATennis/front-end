@@ -1,3 +1,4 @@
+
 import { useContext, useState } from "react"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { Link } from "react-router-dom"
@@ -8,28 +9,16 @@ import { StyledDynamicModal } from "./StyledDynamicModal"
 import StoresSelect from "./StoresSelect"
 
 const DynamicModal = () => {
-  const { currentProduct, dynamicModal, setDynamicModal, contractModal, setContractModal } = useContext(ShopContext)
+  const { currentProduct, setCurrentProduct, dynamicModal, setDynamicModal, contractModal, setContractModal, totalRentCost, setTotalRentCost, handleContractModal } = useContext(ShopContext)
   const { user } = useContext(UserContext)
-  const [totalRentCost, setTotalRentCost] = useState(0)
-  
-  interface iFormRentValues {
-    daysRent: number;
-    store: string;
-    rentCost: number;
-  }
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<iFormRentValues>()
 
-  const onSubmit: SubmitHandler<iFormRentValues> = (data) => {
-    const rentCost = currentProduct?.price || 0
-    const daysRent = data.daysRent || 0
-    const totalCost = rentCost * daysRent
-    setTotalRentCost(totalCost)
+  const submit = (value: number) => {
+    if(currentProduct && value >= 0){
+      const sum = value * currentProduct?.price
+      setTotalRentCost(sum)
+      setCurrentProduct({...currentProduct, daysRent: value})
+    }
   }
 
   return (
@@ -50,21 +39,21 @@ const DynamicModal = () => {
               <span>Defina os detalhes do contrato</span>
             </div>
 
-            <form className="rentModal__form" onSubmit={handleSubmit(onSubmit)}>
+            <form className="rentModal__form">
               <div className="dailyCost">
                 <div className="dailyInput">
-                  <Input
-                    label="Diárias"
+                  <input
+                    id="totalCost__imput"
                     type="number"
-                    register={register("daysRent")}
-                    errors={errors.daysRent}
+                    placeholder="Diárias"
+                    onChange={(event) => submit(Number(event.target.value))}
                   />
                 </div>
                 <h3>{totalRentCost.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</h3>
               </div>
               <StoresSelect />
               <div className="rentForm__btns">
-                <button className="confirm__btn" type="submit">
+                <button className="confirm__btn" type="button" onClick={() => handleContractModal()}>
                   Ver contrato
                 </button>
                 <div
