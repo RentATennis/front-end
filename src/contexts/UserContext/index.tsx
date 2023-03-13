@@ -38,6 +38,7 @@ const UserProvider = ({ children }: iUserProvider) => {
           localStorage.removeItem('@RentATennis: UserID')
           navigate('/login')
         } finally {
+
           setLoading(false)
         }
       } else {
