@@ -17,14 +17,23 @@ const ProfilePage = () => {
   const { user, userLogout } = useContext(UserContext)
   const navigate = useNavigate()
 
+  useEffect(()=>{
+    const token = localStorage.getItem('@RentATennis: Token')
+    if(!token){
+      navigate('/dashboard')
+    }
+  },[])
+
+  console.log(userProducts)
+
   return (
     <StyledProfilePage>
       <StyledProfileHeader>
         <nav>
           <div className="profile">
 
-            <Avatar sx={{ bgcolor: deepOrange[500]}}>{user?.user.name[0]}</Avatar>
-            <h2>{user?.user.name}</h2>
+            <Avatar sx={{ bgcolor: deepOrange[500] }}>{user?.name[0]}</Avatar>
+            <h2>{user?.name}</h2>
 
           </div>
           <div className="navContent">
@@ -34,7 +43,7 @@ const ProfilePage = () => {
         </nav>
       </StyledProfileHeader>
       <StyledProfileContainer>
-        {userProducts ? (
+        {userProducts.length > 0 ? (
           userProducts.map((product) => (
             <RentProductCard
               key={product.id}

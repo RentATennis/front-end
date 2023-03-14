@@ -79,4 +79,49 @@ p {
 strong {
     font-weight: var(--font-weight-semiBold);
 }
+
+.contractModal__Buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+}
+
+.contractConfirm__btn {
+    width: 120px;
+    height: 35px;
+    border-radius: 22px;
+    border: none;
+    outline: none;
+    background-color: var(--color-primary);
+    color: var(--color-grey-400);
+    font-size: var(--font-size-5);
+    font-weight: var(--font-weight-bold);
+    cursor: pointer;
+}
+
+.contractConfirm__btn:hover {
+    filter: contrast(50%);
+}
+
+.contractCancel__btn {
+    width: 120px;
+    height: 35px;
+    border-radius: 22px;
+    border: none;
+    outline: none;
+    background-color: var(--color-grey-400);
+    color: var(--color-grey-0);
+    font-size: var(--font-size-5);
+    font-weight: var(--font-weight-bold);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contractCancel__btn:hover {
+    filter: contrast(50%);
+}
 `

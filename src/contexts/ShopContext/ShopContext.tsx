@@ -46,12 +46,13 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
     getAllProducts();
   }, [])
 
-  const rentAProduct = (id: number) => {
-    const productToAdd = productList.find((product)=>{ product.id === id})
-    if(productToAdd !== undefined){
-      setUserProducts([...userProducts, productToAdd])
+  const rentAProduct = () => {  
+    if(currentProduct !== undefined){
+      setUserProducts([...userProducts, currentProduct])
+      setContractModal(!contractModal)      
     }
   }
+  console.log(userProducts);
 
   const handleContractModal = () => {
     setContractModal(!contractModal)

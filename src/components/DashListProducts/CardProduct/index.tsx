@@ -29,7 +29,7 @@ const CardProduct = ({
 
       <div>
         <span className="name__product">{name}</span>
-        <span className="price__product">R$ {price.toFixed(2)}</span>
+        <span className="price__product">{price.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</span>
       </div>
     </StyledCard>
   );
