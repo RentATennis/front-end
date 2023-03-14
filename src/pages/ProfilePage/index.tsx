@@ -32,11 +32,7 @@ const ProfilePage = () => {
         <nav>
           <div className="profile">
 
-<<<<<<< HEAD
-            <Avatar sx={{ bgcolor: deepOrange[500]}}>{user!.name![0]}</Avatar>
-=======
             <Avatar sx={{ bgcolor: deepOrange[500] }}>{user?.name[0]}</Avatar>
->>>>>>> d311eeb1767c68648f455a2be69a35ab69b6c30f
             <h2>{user?.name}</h2>
 
           </div>

@@ -7,8 +7,7 @@ import Select, { SelectChangeEvent } from '@mui/material/Select'
 import { ShopContext } from '../../../contexts/ShopContext/ShopContext'
 
 export default function StoresSelect() {
-  const { stores } = useContext(ShopContext)
-  const [store, setStore] = useState('')
+  const { stores, store, setStore } = useContext(ShopContext)
 
   const handleChange = (event: SelectChangeEvent) => {
     setStore(event.target.value as string)

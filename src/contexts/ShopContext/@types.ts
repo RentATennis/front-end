@@ -39,6 +39,8 @@ export interface iShopContext {
   setCurrentProduct: React.Dispatch<React.SetStateAction<iProduct | undefined>>;
   handleClick: (id: string) => void;
   stores: string[];
+  store: string;
+  setStore: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface iProduct {

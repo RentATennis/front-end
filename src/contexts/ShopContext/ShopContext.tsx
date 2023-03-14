@@ -33,6 +33,7 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
   const [ contractModal, setContractModal ] = useState(false)
   const [totalRentCost, setTotalRentCost] = useState(0)
   const [stores, setStores] = useState<string[]>([])
+  const [store, setStore] = useState('')
 
   useEffect(() => {
     const storesList = async () => {
@@ -149,7 +150,9 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
         handleContractModal,
         totalRentCost, 
         setTotalRentCost,
-        stores
+        stores,
+        store,
+        setStore
       }
     }>
       {children}
