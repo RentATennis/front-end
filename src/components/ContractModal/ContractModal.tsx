@@ -67,4 +67,4 @@ const ContractModal = () => {
   );
 };
 
-export default ContractModal;
+export default ContractModal
