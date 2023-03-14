@@ -45,8 +45,10 @@ export default function FadeMenu() {
     }
   }
 
-  navigateUserDeslogged()
-  navigateUser()
+  React.useEffect(() => {
+    navigateUserDeslogged()
+    navigateUser()
+  }, [value, valueDesloged])
 
   return (
     <StyledDivContainer>
