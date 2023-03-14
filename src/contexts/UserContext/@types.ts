@@ -9,25 +9,20 @@ export interface iUserProvider {
 export interface iUserContext {
   loading: boolean
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
-  user: iUser | null
-  setUser: React.Dispatch<React.SetStateAction<iUser | null>>
+  user: iUserResponse | null
+  setUser: React.Dispatch<React.SetStateAction<iUserResponse | null>>
   userLogin: (formData: iFormLoginValues) => Promise<void>
   userRegister: (formData: iFormRegisterValues) => Promise<void>
   userLogout: () => void
 }
 
-export interface iUser {
-  accessToken?: string;
-  user?: {
+export interface iUserResponse {
+  accessToken: string;
+  user: {
     email: string;
     name: string;
     cpf: string;
     celular: string;
     id: string;
-  },
-  email?: string;
-  name?: string;
-  cpf?: string;
-  celular?: string;
-  id?: string;
+  };
 }
