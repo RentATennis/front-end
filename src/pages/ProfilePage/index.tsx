@@ -18,7 +18,6 @@ const ProfilePage = () => {
   const productsLocalStorage: iProduct[] = JSON.parse(localStorage.getItem('@RentATennis: Products')!)
   console.log(productsLocalStorage)
   
-  // Revisar depois
   useEffect(()=>{
     const token = localStorage.getItem('@RentATennis: Token')
     if(!token){
@@ -32,7 +31,7 @@ const ProfilePage = () => {
         <nav>
           <div className="profile">
 
-            <Avatar sx={{ bgcolor: deepOrange[500] }}>{user?.name![0]}</Avatar>
+            <Avatar sx={{ bgcolor: deepOrange[500] }}></Avatar>
             <h2>{user?.name}</h2>
 
           </div>
@@ -50,8 +49,8 @@ const ProfilePage = () => {
               img={product.img}
               name={product.name}
               price={product.price}
-              daysRent={1}
-              dayEnd={1}
+              daysRent={Number(product.daysRent)}
+              dayEnd={Number(product.daysRent)}
             />
           ))
         ) : (
@@ -61,7 +60,6 @@ const ProfilePage = () => {
         )}
       </StyledProfileContainer>
       <StyledFooter>
-        <img src="src/assets/logotipo.png" />
       </StyledFooter>
     </StyledProfilePage>
   );
