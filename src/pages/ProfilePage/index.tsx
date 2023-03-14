@@ -38,8 +38,8 @@ const ProfilePage = () => {
               img={product.img}
               name={product.name}
               price={product.price}
-              daysRent={1}
-              dayEnd={1}
+              daysRent={Number(product.daysRent)}
+              dayEnd={Number(product.daysRent)}
             />
           ))
         ) : (
@@ -49,7 +49,6 @@ const ProfilePage = () => {
         )}
       </StyledProfileContainer>
       <StyledFooter>
-        <img src="src/assets/logotipo.png" />
       </StyledFooter>
     </StyledProfilePage>
   )
