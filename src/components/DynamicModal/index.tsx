@@ -7,7 +7,7 @@ import { StyledDynamicModal } from "./StyledDynamicModal"
 import StoresSelect from "./StoresSelect"
 
 const DynamicModal = () => {
-  const { currentProduct, setCurrentProduct, dynamicModal, setDynamicModal, contractModal, setContractModal, totalRentCost, setTotalRentCost, handleContractModal } = useContext(ShopContext)
+  const { currentProduct, setCurrentProduct, dynamicModal, setDynamicModal, totalRentCost, setTotalRentCost, handleContractModal } = useContext(ShopContext)
   const { user } = useContext(UserContext)
 
 

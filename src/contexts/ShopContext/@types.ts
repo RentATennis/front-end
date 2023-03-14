@@ -30,7 +30,7 @@ export interface iShopContext {
 
   verifyDevolution: (date: number) => string;
   userProducts?: iProduct[];
-  rentAProduct: (id: number) => void;
+  rentAProduct: () => void;
   dynamicModal: boolean;
   setDynamicModal: React.Dispatch<React.SetStateAction<boolean>>;
   contractModal: boolean;
