@@ -29,7 +29,7 @@ export interface iShopContext {
   setTotalRentCost: React.Dispatch<React.SetStateAction<number>>;
 
   verifyDevolution: (date: number) => string;
-  userProducts?: iProduct[];
+  userProducts: iProduct[];
   rentAProduct: () => void;
   dynamicModal: boolean;
   setDynamicModal: React.Dispatch<React.SetStateAction<boolean>>;

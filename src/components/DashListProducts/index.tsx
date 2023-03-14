@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
-import { ShopContext } from "../../contexts/ShopContext/ShopContext";
-import CardProduct from "./CardProduct";
-import { StyledUl } from "./SyledUl";
+import { useContext } from "react"
+import { ShopContext } from "../../contexts/ShopContext/ShopContext"
+import CardProduct from "./CardProduct"
+import { StyledUl } from "./SyledUl"
 
 const DashListProducts = () => {
-  const { productList,filteredProducts } = useContext(ShopContext)
+  const { filteredProducts } = useContext(ShopContext)
 
 
   return (
@@ -28,16 +28,4 @@ const DashListProducts = () => {
   )
 }
 
-/*   brand: string;
-  category: string;
-  color: string;
-  dayEnd: string;
-  dayStart: string;
-  genre: string;
-  id: number;
-  img: string;
-  isRented: boolean;
-  name: string;
-  price: number;
-  size: number[]; */
 export default DashListProducts

@@ -1,4 +1,3 @@
-
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { ShopContext } from "../../contexts/ShopContext/ShopContext"
@@ -9,7 +8,6 @@ import StoresSelect from "./StoresSelect"
 const DynamicModal = () => {
   const { currentProduct, setCurrentProduct, dynamicModal, setDynamicModal, totalRentCost, setTotalRentCost, handleContractModal } = useContext(ShopContext)
   const { user } = useContext(UserContext)
-
 
   const submit = (value: number) => {
     if(currentProduct && value >= 0){

@@ -1,12 +1,10 @@
 import { createContext, useEffect, useMemo, useState } from "react"
-import { toast } from "react-toastify"
 import { api } from "../../services/api"
 import { iFilterOptions, iProduct, iShopContext, iShopContextProps } from "./@types"
 
 export const ShopContext = createContext({} as iShopContext)
 
 export const ShopProvider = ({ children }: iShopContextProps) => {
-
   const [filterOptions, setFilterOptions] = useState<iFilterOptions>({
     category:'',
     genre:'',
@@ -16,13 +14,10 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
 
   const [ brands, setBrands ] = useState<string[]>([])
   const [ brandSelect, setBrandSelect ] = useState<string>("")
-
   const [ colors, setColors ] = useState<string[]>([])
   const [ valueColor, setValueColor ] = useState<string>("");
-
   const [ category, setCategory ] = useState("")
   const [ valueRadioGender, setValueRadioGender ] =useState<string>("")
-
   const [ size, setSize ] = useState<string[]>([])
   const [ valueSize, setValueSize ] = useState<string>("")
 
@@ -31,6 +26,7 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
   const [ currentProduct, setCurrentProduct ] = useState<iProduct>()
   const [ dynamicModal, setDynamicModal ] = useState(false)
   const [ contractModal, setContractModal ] = useState(false)
+
   const [totalRentCost, setTotalRentCost] = useState(0)
   const [stores, setStores] = useState<string[]>([])
   const [store, setStore] = useState('')
@@ -67,7 +63,12 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
       setContractModal(!contractModal)      
     }
   }
-  console.log(userProducts);
+
+  useEffect(() => {
+    if (userProducts.length > 0) {
+      localStorage.setItem('@RentATennis: Products', JSON.stringify(userProducts))
+    }
+  }, [userProducts])
 
   const handleContractModal = () => {
     setContractModal(!contractModal)
@@ -92,7 +93,6 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
     }
   }
 
-
   const filteredProducts = useMemo(() => {
     return productList.filter((product) => {
     if (filterOptions.category && product.category !== filterOptions.category) {
@@ -111,7 +111,6 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
     return true;
     });
     }, [filterOptions, productList]);
-
 
   return (
     <ShopContext.Provider value={

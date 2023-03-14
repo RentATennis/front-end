@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import { useContext, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import Avatar from "@mui/material/Avatar"
 import { deepOrange } from "@mui/material/colors"
@@ -6,17 +6,19 @@ import { StyledProfilePage } from "./StyledProfilePage"
 import { UserContext } from "../../contexts/UserContext"
 import { StyledFooter } from "./StyledFooter"
 import { StyledProfileContainer } from "./StyledProfileContainer"
-import { ShopContext } from "../../contexts/ShopContext/ShopContext"
 import RentProductCard from "../../components/RentProductCard/RentProductCard"
 import { StyledProfileEmpty } from "./StyledProfileEmpty"
 import { StyledProfileHeader } from "./StyledProfileHeader"
+import { iProduct } from "../../contexts/ShopContext/@types"
 
 const ProfilePage = () => {
-  const { productList, userProducts } = useContext(ShopContext)
-
   const { user, userLogout } = useContext(UserContext)
   const navigate = useNavigate()
 
+  const productsLocalStorage: iProduct[] = JSON.parse(localStorage.getItem('@RentATennis: Products')!)
+  console.log(productsLocalStorage)
+  
+  // Revisar depois
   useEffect(()=>{
     const token = localStorage.getItem('@RentATennis: Token')
     if(!token){
@@ -24,15 +26,13 @@ const ProfilePage = () => {
     }
   },[])
 
-  console.log(userProducts)
-
   return (
     <StyledProfilePage>
       <StyledProfileHeader>
         <nav>
           <div className="profile">
 
-            <Avatar sx={{ bgcolor: deepOrange[500] }}>{user?.name[0]}</Avatar>
+            <Avatar sx={{ bgcolor: deepOrange[500] }}>{user?.name![0]}</Avatar>
             <h2>{user?.name}</h2>
 
           </div>
@@ -43,15 +43,15 @@ const ProfilePage = () => {
         </nav>
       </StyledProfileHeader>
       <StyledProfileContainer>
-        {userProducts.length > 0 ? (
-          userProducts.map((product) => (
+        {productsLocalStorage ? (
+          productsLocalStorage.map((product) => (
             <RentProductCard
               key={product.id}
               img={product.img}
               name={product.name}
               price={product.price}
-              daysRent={2}
-              dayEnd={0}
+              daysRent={1}
+              dayEnd={1}
             />
           ))
         ) : (
