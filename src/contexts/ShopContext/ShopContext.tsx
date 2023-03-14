@@ -32,6 +32,20 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
   const [ dynamicModal, setDynamicModal ] = useState(false)
   const [ contractModal, setContractModal ] = useState(false)
   const [totalRentCost, setTotalRentCost] = useState(0)
+  const [stores, setStores] = useState<string[]>([])
+
+  useEffect(() => {
+    const storesList = async () => {
+      try {
+        const response = await api.get('/stores')
+        setStores(response.data)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+    storesList()
+  }, [])
+
 
   const getAllProducts = async () => {
     try {
@@ -134,6 +148,7 @@ export const ShopProvider = ({ children }: iShopContextProps) => {
         handleContractModal,
         totalRentCost, 
         setTotalRentCost,
+        stores
       }
     }>
       {children}

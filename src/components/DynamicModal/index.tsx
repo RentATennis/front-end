@@ -1,9 +1,7 @@
 
-import { useContext, useState } from "react"
-import { SubmitHandler, useForm } from "react-hook-form"
+import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { ShopContext } from "../../contexts/ShopContext/ShopContext"
-import Input from "../Input"
 import { UserContext } from "../../contexts/UserContext"
 import { StyledDynamicModal } from "./StyledDynamicModal"
 import StoresSelect from "./StoresSelect"
