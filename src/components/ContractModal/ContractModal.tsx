@@ -64,7 +64,7 @@ const ContractModal = () => {
         </div>
       </div>
     </StyledContractModal>
-  );
-};
+  )
+}
 
 export default ContractModal
