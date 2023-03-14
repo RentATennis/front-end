@@ -1,5 +1,5 @@
-import { useContext, useEffect } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { useContext } from "react"
+import { Link } from "react-router-dom"
 import Avatar from "@mui/material/Avatar"
 import { deepOrange } from "@mui/material/colors"
 import { StyledProfilePage } from "./StyledProfilePage"
@@ -13,27 +13,15 @@ import { iProduct } from "../../contexts/ShopContext/@types"
 
 const ProfilePage = () => {
   const { user, userLogout } = useContext(UserContext)
-  const navigate = useNavigate()
-
   const productsLocalStorage: iProduct[] = JSON.parse(localStorage.getItem('@RentATennis: Products')!)
-  console.log(productsLocalStorage)
   
-  useEffect(()=>{
-    const token = localStorage.getItem('@RentATennis: Token')
-    if(!token){
-      navigate('/dashboard')
-    }
-  },[])
-
   return (
     <StyledProfilePage>
       <StyledProfileHeader>
         <nav>
           <div className="profile">
-
-            <Avatar sx={{ bgcolor: deepOrange[500] }}></Avatar>
-            <h2>{user?.name}</h2>
-
+            <Avatar sx={{ bgcolor: deepOrange[500] }}>{user?.user.name[0]}</Avatar>
+            <h2>{user?.user.name}</h2>
           </div>
           <div className="navContent">
             <Link to={"/dashboard"} className="link white">Voltar</Link>
@@ -42,6 +30,7 @@ const ProfilePage = () => {
         </nav>
       </StyledProfileHeader>
       <StyledProfileContainer>
+        
         {productsLocalStorage ? (
           productsLocalStorage.map((product) => (
             <RentProductCard
@@ -62,7 +51,7 @@ const ProfilePage = () => {
       <StyledFooter>
       </StyledFooter>
     </StyledProfilePage>
-  );
-};
+  )
+}
 
 export default ProfilePage

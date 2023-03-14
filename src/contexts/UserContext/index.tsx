@@ -5,13 +5,13 @@ import { toast } from "react-toastify"
 import { iFormLoginValues } from "../../components/Form/LoginForm/@types"
 import { iFormRegisterValues } from "../../components/Form/RegisterForm/@types"
 import { api } from "../../services/api"
-import { iUser, iUserContext, iUserProvider } from "./@types"
+import { iUserContext, iUserProvider, iUserResponse } from "./@types"
 
 export const UserContext = createContext({} as iUserContext)
 
 const UserProvider = ({ children }: iUserProvider) => {
   const [loading, setLoading] = useState(true)
-  const [user, setUser] = useState<iUser | null>(null)
+  const [user, setUser] = useState<iUserResponse | null>({} as iUserResponse || null)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const UserProvider = ({ children }: iUserProvider) => {
               Authorization: `Bearer ${token}`
             }
           }
-          const response = await api.get<iUser>(`/users/${userId}`, config)
+          const response = await api.get<iUserResponse>(`/users/${userId}`, config)
           setUser(response.data)
         } catch (error) {
           console.error(error)
@@ -51,7 +51,7 @@ const UserProvider = ({ children }: iUserProvider) => {
   async function userLogin(formData: iFormLoginValues) {
     try {
       setLoading(true)
-      const response = await api.post<iUser>('/login', formData)
+      const response = await api.post<iUserResponse>('/login', formData)
       setUser(response.data)
       localStorage.setItem('@RentATennis: Token', response.data.accessToken!)
       localStorage.setItem('@RentATennis: UserID', response.data.user!.id);
@@ -73,7 +73,7 @@ const UserProvider = ({ children }: iUserProvider) => {
   async function userRegister(formData: iFormRegisterValues) {
     try {
       setLoading(true)
-      await api.post<iUser>('/register', formData)
+      await api.post<iUserResponse>('/register', formData)
       toast.success('Cadastro realizado com sucesso!')
       navigate('/login')
     } catch (error) {
