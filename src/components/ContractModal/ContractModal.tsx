@@ -22,7 +22,7 @@ const ContractModal = () => {
             <h3>Contrato de Aluguel de Tênis</h3>
             <strong>Partes: </strong>
             <p>Locador: RentATennis Serviço de Locação de Calçados LTDA</p>  
-            <p>Locatário: {user?.user.name}</p>
+            <p>Locatário: {user?.name}</p>
             <br></br>
             <p><strong>Objeto do Contrato: </strong></p>
             <p>O locador concorda em alugar um par de tênis {currentProduct?.name}, da {`${currentProduct?.brand}`} para o locatário pelo período de {currentProduct ? currentProduct?.daysRent : null} dias.</p>
@@ -50,10 +50,10 @@ const ContractModal = () => {
             <p><strong>Assinaturas: </strong></p>
             <p>O locatário e o locador reconhecem que leram e compreenderam os termos e condições deste contrato e concordam em cumpri-los integralmente. </p>
             <br></br>
-            <p>Eu {user?.user.name} concordo com todos os termos do presente contrato</p>
+            <p>Eu {user?.name} concordo com todos os termos do presente contrato</p>
         </div>
         <div className="contractModal__Buttons">
-          <button className="contractConfirm__btn" onClick={() => rentAProduct(Number(currentProduct?.id))}>
+          <button className="contractConfirm__btn" onClick={rentAProduct}>
             Alugar
           </button>
           <div
