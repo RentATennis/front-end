@@ -1,16 +1,16 @@
-import React, { useContext, useEffect } from "react";
-import { iProduct } from "../../../contexts/ShopContext/@types";
-import { ShopContext } from "../../../contexts/ShopContext/ShopContext";
-import { UserContext } from "../../../contexts/UserContext";
-import { StyledCard } from "./StyledLi";
+import { useContext } from "react"
+import { iProduct } from "../../../contexts/ShopContext/@types"
+import { ShopContext } from "../../../contexts/ShopContext/ShopContext"
+import { UserContext } from "../../../contexts/UserContext"
+import { StyledCard } from "./StyledLi"
 
 const CardProduct = ({
   img,
   name,
   price,
 }: iProduct) => {
-  const { user } = useContext(UserContext);
-  const { rentAProduct, handleClick, dynamicModal, setDynamicModal,brandSelect,valueColor,valueRadioGender,productList, category } = useContext(ShopContext);
+  const { user } = useContext(UserContext)
+  const { rentAProduct, handleClick, dynamicModal, setDynamicModal,brandSelect,valueColor,valueRadioGender,productList, category } = useContext(ShopContext)
 
 
   return (
@@ -32,7 +32,7 @@ const CardProduct = ({
         <span className="price__product">{price.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</span>
       </div>
     </StyledCard>
-  );
-};
+  )
+}
 
 export default CardProduct;

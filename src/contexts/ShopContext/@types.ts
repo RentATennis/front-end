@@ -29,7 +29,7 @@ export interface iShopContext {
   setTotalRentCost: React.Dispatch<React.SetStateAction<number>>;
 
   verifyDevolution: (date: number) => string;
-  userProducts?: iProduct[];
+  userProducts: iProduct[];
   rentAProduct: () => void;
   dynamicModal: boolean;
   setDynamicModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -38,6 +38,9 @@ export interface iShopContext {
   currentProduct?: iProduct;
   setCurrentProduct: React.Dispatch<React.SetStateAction<iProduct | undefined>>;
   handleClick: (id: string) => void;
+  stores: string[];
+  store: string;
+  setStore: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface iProduct {
